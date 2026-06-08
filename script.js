@@ -416,7 +416,7 @@ function getCompatibility(typeName) {
 
 function renderResult(scores, result) {
   const resultSection = document.getElementById("result");
-  const loadingSection = document.getElementById("loading");
+  const loadingSection = document.getElementById("resultLoading");
   const resultCard = document.getElementById("resultCard");
   const compat = getCompatibility(result.name);
 
@@ -655,8 +655,45 @@ if (chapterStart && quizSection) {
       const scores = calculateScores();
       if (!scores) return;
 
-      const nearest = findNearestType(scores);
-      renderResult(scores, nearest.type);
+     const nearest = findNearestType(scores);
+
+const resultLoading = document.getElementById("resultLoading");
+const resultSection = document.getElementById("result");
+const resultLoadingText = document.getElementById("resultLoadingText");
+
+if (resultSection) {
+  resultSection.classList.add("hidden");
+}
+
+if (resultLoading) {
+  resultLoading.classList.remove("hidden");
+  resultLoading.scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+}
+
+const messages = [
+  "あなたの甘さを読み取り中...",
+  "相性のいいシロップを探しています...",
+  "愛され方の余韻を調合中...",
+  "もうすぐ結果が完成します..."
+];
+
+let messageIndex = 0;
+
+const messageTimer = setInterval(() => {
+  if (resultLoadingText) {
+    resultLoadingText.textContent = messages[messageIndex % messages.length];
+  }
+
+  messageIndex++;
+}, 500);
+
+setTimeout(() => {
+  clearInterval(messageTimer);
+  renderResult(scores, nearest.type);
+}, 2600);
     });
   }
 
