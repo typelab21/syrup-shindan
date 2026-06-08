@@ -1,3 +1,5 @@
+// データ定義（省略せずそのまま維持）
+
 const answerScale = [
   { label: "とても当てはまる", a: 2, b: 0 },
   { label: "やや当てはまる", a: 1.5, b: 0.5 },
@@ -261,6 +263,8 @@ function renderCurrentQuestion() {
   const form = document.getElementById("quizForm");
   const question = questions[currentQuestionIndex];
 
+  if (!form || !question) return;
+
   form.innerHTML = "";
 
   const card = document.createElement("div");
@@ -317,6 +321,8 @@ function renderCurrentQuestion() {
 function updateResultButton() {
   const button = document.getElementById("resultButton");
 
+  if (!button) return;
+
   if (currentQuestionIndex === questions.length - 1) {
     button.textContent = "結果を見る";
     button.classList.remove("next-mode");
@@ -371,11 +377,16 @@ function calculateScores() {
     raw[question.b] += selected.b;
   }
 
+  const pct = (a, b) => {
+    const sum = a + b;
+    return sum ? Math.round((a / sum) * 100) : 50;
+  };
+
   return {
-    open: Math.round((raw.open / (raw.open + raw.cool)) * 100),
-    harmony: Math.round((raw.harmony / (raw.harmony + raw.individual)) * 100),
-    stable: Math.round((raw.stable / (raw.stable + raw.stimulus)) * 100),
-    light: Math.round((raw.light / (raw.light + raw.rich)) * 100)
+    open: pct(raw.open, raw.cool),
+    harmony: pct(raw.harmony, raw.individual),
+    stable: pct(raw.stable, raw.stimulus),
+    light: pct(raw.light, raw.rich)
   };
 }
 
@@ -409,7 +420,7 @@ function renderResult(scores, result) {
   const resultCard = document.getElementById("resultCard");
   const compat = getCompatibility(result.name);
 
-  loadingSection.classList.add("hidden");
+  if (loadingSection) loadingSection.classList.add("hidden");
 
   const compatHtml = compat
     ? `
@@ -421,6 +432,7 @@ function renderResult(scores, result) {
       </div>
     `
     : "<p>相性データを準備中です。</p>";
+  if (!resultCard) return;
 
   resultCard.innerHTML = `
     <div class="result-hero">
@@ -472,8 +484,10 @@ function renderResult(scores, result) {
     </button>
   `;
 
-  resultSection.classList.remove("hidden");
-  resultSection.scrollIntoView({ behavior: "smooth" });
+  if (resultSection) {
+    resultSection.classList.remove("hidden");
+    resultSection.scrollIntoView({ behavior: "smooth" });
+  }
 }
 
 function scoreBox(labelA, valueA, labelB) {
@@ -488,9 +502,15 @@ function scoreBox(labelA, valueA, labelB) {
 
 function shareResult(typeName) {
   const text = `私の愛され方タイプは「${typeName}」でした。`;
-  navigator.clipboard.writeText(text).then(() => {
-    alert("結果をコピーしました。");
-  });
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(() => {
+      alert("結果をコピーしました。");
+    }).catch(() => {
+      alert("クリップボードへのコピーに失敗しました。手動でコピーしてください。");
+    });
+  } else {
+    alert("この環境では自動コピーが使えません。テキストを手動でコピーしてください。\n" + text);
+  }
 }
 
 function renderTypeList() {
@@ -498,25 +518,69 @@ function renderTypeList() {
   typeList.innerHTML = "";
 
   baseTypes.forEach((type) => {
-    const card = document.createElement("div");
-    card.className = "type-card";
+    const card = document.createElement("button");
+    card.className = "type-card type-card-button";
+    card.type = "button";
 
     card.innerHTML = `
       <h3>${type.name}</h3>
       <p><strong>${type.group}</strong></p>
       <p>${type.catch}</p>
       <div class="tags">
-        <span class="tag">オープン${type.open}</span>
-        <span class="tag">調和${type.harmony}</span>
-        <span class="tag">安定${type.stable}</span>
-        <span class="tag">ライト${type.light}</span>
+        <span class="tag">詳しく見る</span>
       </div>
     `;
+
+    card.addEventListener("click", () => {
+      openTypeModal(type);
+    });
 
     typeList.appendChild(card);
   });
 }
+function openTypeModal(type) {
+  const modal = document.getElementById("typeModal");
+  const content = document.getElementById("typeModalContent");
 
+  if (!modal || !content) return;
+
+  const compat = getCompatibility(type.name);
+
+  const compatHtml = compat
+    ? `
+      <p>◎ ${compat[1]}</p>
+      <p>○ ${compat[2]}</p>
+      <p>△ ${compat[3]}</p>
+      <p><strong>組み合わせ名：</strong>${compat[4]}</p>
+    `
+    : `<p>相性データを準備中です。</p>`;
+
+  content.innerHTML = `
+    <span class="modal-group">${type.group}</span>
+    <h3 class="modal-title">${type.name}</h3>
+    <p class="modal-catch">${type.catch}</p>
+    <p class="modal-manual">${type.summary}</p>
+
+    <div class="modal-section">
+      <h4>特徴</h4>
+      <ul>
+        ${type.features.map((item) => `<li>${item}</li>`).join("")}
+      </ul>
+    </div>
+
+    <div class="modal-section">
+      <h4>取扱説明書</h4>
+      <p class="modal-manual">${type.manual}</p>
+    </div>
+
+    <div class="modal-section">
+      <h4>相性</h4>
+      ${compatHtml}
+    </div>
+  `;
+
+  modal.classList.remove("hidden");
+}
 function renderCompatibility() {
   const list = document.getElementById("compatibilityList");
   list.innerHTML = "";
@@ -539,40 +603,67 @@ function renderCompatibility() {
     list.appendChild(card);
   });
 }
+document.addEventListener("DOMContentLoaded", () => {
+    const typeModal = document.getElementById("typeModal");
+const typeModalClose = document.getElementById("typeModalClose");
+const typeModalBg = document.querySelector(".type-modal-bg");
 
-document.getElementById("resultButton").addEventListener("click", () => {
-  const currentQuestion = questions[currentQuestionIndex];
+if (typeModalClose && typeModal) {
+  typeModalClose.addEventListener("click", () => {
+    typeModal.classList.add("hidden");
+  });
+}
 
-  if (answers[currentQuestion.id] === undefined) {
-    alert("この質問に回答してください。");
-    return;
+if (typeModalBg && typeModal) {
+  typeModalBg.addEventListener("click", () => {
+    typeModal.classList.add("hidden");
+  });
+}
+  const startQuizBtn = document.getElementById("startQuizBtn");
+  const quizSection = document.getElementById("quiz");
+  const loading = document.getElementById("loading");
+  const resultButton = document.getElementById("resultButton");
+
+  if (loading) {
+    setTimeout(() => {
+      loading.classList.add("hide");
+    }, 900);
   }
 
-  if (currentQuestionIndex < questions.length - 1) {
-    currentQuestionIndex += 1;
-    renderCurrentQuestion();
-    document.getElementById("quiz").scrollIntoView({ behavior: "smooth" });
-    return;
+  if (startQuizBtn && quizSection) {
+    startQuizBtn.addEventListener("click", () => {
+      quizSection.style.display = "block";
+      quizSection.classList.add("is-show");
+      quizSection.scrollIntoView({ behavior: "smooth" });
+    });
   }
 
-  const scores = calculateScores();
-  if (!scores) return;
+  if (resultButton) {
+    resultButton.addEventListener("click", () => {
+      const currentQuestion = questions[currentQuestionIndex];
 
-  const nearest = findNearestType(scores);
+      if (answers[currentQuestion.id] === undefined) {
+        alert("この質問に回答してください。");
+        return;
+      }
 
-  const loadingSection = document.getElementById("loading");
-  const resultSection = document.getElementById("result");
+      if (currentQuestionIndex < questions.length - 1) {
+        currentQuestionIndex++;
+        renderCurrentQuestion();
+        quizSection.scrollIntoView({ behavior: "smooth" });
+        return;
+      }
 
-  resultSection.classList.add("hidden");
-  loadingSection.classList.remove("hidden");
-  loadingSection.scrollIntoView({ behavior: "smooth" });
+      const scores = calculateScores();
+      if (!scores) return;
 
-  setTimeout(() => {
-    renderResult(scores, nearest.type);
-  }, 1500);
+      const nearest = findNearestType(scores);
+      renderResult(scores, nearest.type);
+    });
+  }
+
+  renderCurrentQuestion();
+  renderTypeList();
+  renderCompatibility();
+  updateProgress();
 });
-
-renderCurrentQuestion();
-renderTypeList();
-renderCompatibility();
-updateProgress();

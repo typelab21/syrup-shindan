@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+   <body>
+  <header class="site-header">
   <header class="site-header">
     <div class="logo">愛されフレーバー診断</div>
     <nav>
@@ -21,24 +23,55 @@
     </nav>
   </header>
 
-  <main>
-    <section id="top" class="hero">
-      <div class="hero-card">
-        <p class="eyebrow">16 syrup love-style types</p>
-        <h1>あなたは、どんなふうに愛される人？</h1>
-        <p class="lead">
-          20問の質問から、あなたの人間性や人との関わり方を読み解き、
-          16種類のフレーバータイプに分類するよ
-        </p>
-        <a href="#quiz" class="start-button">診断をはじめる</a>
-      </div>
-    </section>
+ <main>
+ <section id="top" class="hero">
+  <div class="hero-inner">
+    <p class="hero-label">16 syrup love-style types</p>
 
-    <section id="quiz" class="section">
-      <h2>診断はじめ</h2>
-      <p class="section-text">
-        それぞれの質問に、直感でこたえてね。
-      </p>
+    <h1>
+      あなたの愛され方は、<br>
+      どんなシロップでできている？
+    </h1>
+
+    <p class="hero-story">
+      愛され方には、目に見えない物語があります。<br>
+      同じ「好かれる」でも、人によって惹きつけ方は違う。<br>
+      あなたは、どんなシロップとして記憶されるのでしょうか。
+    </p>
+
+    <div class="chapter-menu">
+      <a href="#quiz" class="chapter-item">
+        <span class="chapter-number">01</span>
+        <span class="chapter-name">診断をはじめる</span>
+      </a>
+
+      <a href="#types" class="chapter-item">
+        <span class="chapter-number">02</span>
+        <span class="chapter-name">シロップ図鑑</span>
+      </a>
+
+      <a href="#compatibility" class="chapter-item">
+        <span class="chapter-number">03</span>
+        <span class="chapter-name">食べ合わせ</span>
+      </a>
+
+      <a href="#about" class="chapter-item">
+        <span class="chapter-number">04</span>
+        <span class="chapter-name">この物語について</span>
+      </a>
+    </div>
+
+    <button type="button" id="startQuizBtn" class="start-btn">
+      シロップを注ぐ
+    </button>
+  </div>
+</section>
+
+  <section id="quiz" class="section">
+    <h2>診断はじめ</h2>
+    <p class="section-text">
+      それぞれの質問に、直感でこたえてね。
+    </p>
 <div class="progress-area syrup-jar-progress">
   <div class="jar-wrap">
     <div class="jar">
@@ -62,70 +95,44 @@
     </div>
   </div>
 </div>
-  <div class="progress-label">
-    <span class="mini-label">Syrup meter</span>
-    <span><span id="progressCount">0</span> / 20 問こたえたよ</span>
-  </div>
+    <form id="quizForm" class="quiz-form"></form>
 
-  <div class="syrup-bottle">
-    <div class="bottle-neck"></div>
-    <div class="bottle-glass">
-      <div id="progressFill" class="syrup-fill">
-        <span class="bubble bubble-1"></span>
-        <span class="bubble bubble-2"></span>
-        <span class="bubble bubble-3"></span>
-      </div>
-      <div class="glass-shine"></div>
-      <div class="bottle-line"></div>
-    </div>
+    <button id="resultButton" class="result-button" type="button">
+      気になる結果は。。。
+    </button>
+  </section>
+
+  <section id="result" class="section result-section hidden">
+    <h2>診断結果</h2>
+    <div id="resultCard" class="result-card"></div>
+  </section>
+
+  <section id="types" class="section">
+    <h2>全タイプ一覧</h2>
+    <div id="typeList" class="type-grid"></div>
+  </section>
+
+  <section id="compatibility" class="section">
+    <h2>食べ合わせ一覧</h2>
+    <div id="compatibilityList" class="compatibility-grid"></div>
+  </section>
+
+  <section id="about" class="section about">
+    <h2>この診断について</h2>
+    <p>
+      この診断は、感情表現・対人スタイル・影響の与え方・魅力の質という4つの軸から、
+      あなたに近いフレーバータイプを判定するよ
+    </p>
+  </section>
+  <div id="typeModal" class="type-modal hidden">
+  <div class="type-modal-bg"></div>
+
+  <div class="type-modal-card">
+    <button id="typeModalClose" class="type-modal-close">×</button>
+    <div id="typeModalContent"></div>
   </div>
 </div>
-      <form id="quizForm" class="quiz-form"></form>
-
-      <button id="resultButton" class="result-button" type="button">
-        気になる結果は。。。
-      </button>
-    </section>
-<section id="loading" class="section loading-section hidden">
-  <div class="loading-card">
-    <div class="pouring-syrup"></div>
-    <p class="loading-title">あなたのシロップを注いでいます...</p>
-    <p class="loading-text">20問の答えから、いちばん近い愛され方を調合中。</p>
-  </div>
-</section>
-    <section id="result" class="section result-section hidden">
-      <h2>診断結果</h2>
-      <div id="resultCard" class="result-card"></div>
-    </section>
-
-    <section id="types" class="section">
-      <h2>全タイプ一覧</h2>
-      <p class="section-text">
-        余韻型・共鳴型・庇護型・執着型の4つの愛されタイプに分かれます。
-      </p>
-      <div id="typeList" class="type-grid"></div>
-    </section>
-
-    <section id="compatibility" class="section">
-      <h2>食べ合わせ一覧</h2>
-      <p class="section-text">
-        味×人間性の相性がいい組み合わせをご紹介
-    </p>
-      <div id="compatibilityList" class="compatibility-grid"></div>
-    </section>
-
-    <section id="about" class="section about">
-      <h2>この診断について</h2>
-      <p>
-        この診断は、感情表現・対人スタイル・影響の与え方・魅力の質という4つの軸から、
-        あなたに近いフレーバータイプを判定するよ
-      </p>
-      <p>
-        結果は「正解」ではなく、自分の魅力を物語として楽しむためのヒントとして受け取ってね。
-      </p>
-    </section>
-  </main>
-
+</main>
   <footer class="footer">
     <p>© 愛されフレーバー診断</p>
   </footer>
