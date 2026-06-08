@@ -584,6 +584,7 @@ if (modalCard) {
   modalCard.scrollTop = 0;
 }
   modal.classList.remove("hidden");
+  modal.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 function renderCompatibility() {
   const list = document.getElementById("compatibilityList");

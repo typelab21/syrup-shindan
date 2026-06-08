@@ -148,7 +148,15 @@
   <div class="type-modal-bg"></div>
 
   <div class="type-modal-card">
-    <button id="typeModalClose" class="type-modal-close">×</button>
+    <button
+  id="typeModalClose"
+  class="type-modal-close"
+  type="button"
+  onclick="document.getElementById('typeModal').classList.add('hidden')"
+>
+  ×
+</button>
+
     <div id="typeModalContent"></div>
   </div>
 </div>

@@ -2299,4 +2299,130 @@ body::after {
     transform: translateY(-8px);
     opacity: 1;
   }
+}/* =========================
+   Mobile Modal Fix
+========================= */
+
+.type-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  overflow-y: auto;
+}
+
+.type-modal-card {
+  position: relative;
+}
+
+.type-modal-close {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 100000;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #6b3f86;
+  font-size: 28px;
+  line-height: 1;
+  box-shadow: 0 10px 24px rgba(112, 68, 150, 0.22);
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+@media (max-width: 700px) {
+  .type-modal {
+    align-items: flex-start;
+    justify-content: center;
+    padding: 72px 12px 24px;
+  }
+
+  .type-modal-card {
+    width: 100%;
+    max-height: none;
+    margin: 0;
+    padding: 26px 18px;
+    border-radius: 26px;
+  }
+
+  .modal-title {
+    font-size: 30px;
+    line-height: 1.35;
+  }
+
+  .modal-manual {
+    font-size: 14px;
+    line-height: 1.9;
+  }
+}
+.type-modal-close {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 100000;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.96);
+  color: #6b3f86;
+  font-size: 28px;
+  line-height: 1;
+  box-shadow: 0 10px 24px rgba(112, 68, 150, 0.22);
+  pointer-events: auto;
+}
+/* =========================
+   Modal Always In Front
+========================= */
+
+.type-modal {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 99999 !important;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  padding: 72px 16px 28px;
+  overflow-y: auto;
+}
+
+.type-modal.hidden {
+  display: none !important;
+}
+
+.type-modal-bg {
+  position: fixed;
+  inset: 0;
+  background: rgba(58, 32, 76, 0.45);
+  backdrop-filter: blur(8px);
+}
+
+.type-modal-card {
+  position: relative;
+  z-index: 1;
+
+  width: min(760px, 100%);
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+
+  margin: 0 auto;
+  padding: 34px;
+  border-radius: 32px;
+}
+
+@media (max-width: 700px) {
+  .type-modal {
+    padding: 68px 12px 24px;
+  }
+
+  .type-modal-card {
+    width: 100%;
+    max-height: calc(100vh - 92px);
+    padding: 24px 18px;
+    border-radius: 26px;
+  }
 }
