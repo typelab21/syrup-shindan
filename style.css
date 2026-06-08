@@ -1,0 +1,7596 @@
+:root {
+  --bg: #fff4fb;
+  --bg2: #f3e7ff;
+  --cream: #fffaff;
+  --card: rgba(255, 255, 255, 0.78);
+
+  --brown: #3f274f;
+  --brown2: #6b3f86;
+
+  --caramel: #c26cff;
+  --rose: #ff8fc7;
+  --pink: #ffd6ec;
+  --milk: #fff7fd;
+
+  --line: rgba(137, 80, 170, 0.18);
+  --shadow: 0 22px 60px rgba(112, 68, 150, 0.16);
+  --soft-shadow: 0 12px 28px rgba(112, 68, 150, 0.11);
+}
+
+body {
+  margin: 0;
+  font-family:
+  "Zen Maru Gothic",
+  "Hiragino Maru Gothic ProN",
+  "Yu Gothic",
+  "YuGothic",
+  sans-serif;
+  color: var(--brown);
+  line-height: 1.85;
+  background:
+    radial-gradient(circle at 8% 8%, rgba(255, 170, 218, 0.7), transparent 26%),
+    radial-gradient(circle at 92% 18%, rgba(203, 170, 255, 0.72), transparent 30%),
+    radial-gradient(circle at 50% 96%, rgba(255, 213, 240, 0.72), transparent 36%),
+    linear-gradient(180deg, #fff4fb 0%, #f9efff 48%, #fff0f8 100%);
+  overflow-x: hidden;
+    /* .chapter-* セレクタを削除しました */
+  background: rgba(217, 144, 144, 0.18);
+  transform: translateY(-1px);
+}
+
+.hero {
+  min-height: 86vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 70px 20px 60px;
+  position: relative;
+}
+
+.hero::before {
+  width: 170px;
+  height: 170px;
+  left: 8%;
+  top: 18%;
+  background: radial-gradient(circle at 35% 35%, #ffd1ec, #c997ff);
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(2px);
+  opacity: 0.72;
+  animation: float 7s ease-in-out infinite;
+}
+
+.hero::after {
+  width: 120px;
+  height: 120px;
+  right: 10%;
+  bottom: 18%;
+  background: radial-gradient(circle at 35% 35%, #f1d4ff, #ff9ccc);
+  animation-delay: -2.5s;
+}
+
+.hero-card {
+  width: min(940px, 100%);
+  padding: clamp(38px, 7vw, 70px) clamp(22px, 5vw, 56px);
+  border-radius: 44px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(255, 244, 235, 0.74));
+  box-shadow: var(--shadow);
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.86);
+  position: relative;
+  overflow: hidden;
+  animation: fadeUp 0.8s ease both;
+}
+
+.hero-card::before {
+  content: "";
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  right: -140px;
+  top: -170px;
+  background: radial-gradient(circle, rgba(217, 144, 144, 0.28), transparent 65%);
+  pointer-events: none;
+}
+
+.hero-card::after {
+  content: "syrup";
+  position: absolute;
+  left: 26px;
+  bottom: 12px;
+  font-size: clamp(48px, 10vw, 120px);
+  font-weight: 900;
+  line-height: 1;
+  color: rgba(122, 76, 56, 0.045);
+  pointer-events: none;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 14px;
+  padding: 7px 13px;
+  border-radius: 999px;
+  background: rgba(255, 225, 230, 0.72);
+  color: #a96055;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.eyebrow::before {
+  content: "✦";
+}
+
+h1
+.section h2,
+.result-type {
+  font-family:
+    "Zen Maru Gothic",
+    "Hiragino Maru Gothic ProN",
+    sans-serif;
+  font-weight: 900;
+}
+
+.lead {
+  max-width: 720px;
+  margin: 24px auto 36px;
+  font-size: 17px;
+  color: #6d5146;
+}
+
+.start-button,
+.result-button,
+.share-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--caramel), #b75f49);
+  color: white;
+  padding: 15px 30px;
+  font-weight: 900;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0 12px 28px rgba(182, 106, 77, 0.28);
+  transition: 0.2s ease;
+}
+
+.start-button::after {
+  content: "→";
+}
+
+.start-button:hover,
+.result-button:hover,
+.share-button:hover {
+  transform: translateY(-3px) scale(1.015);
+  box-shadow: 0 18px 34px rgba(182, 106, 77, 0.34);
+}
+
+.start-button:active,
+.result-button:active,
+.share-button:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+.section {
+  width: min(1100px, calc(100% - 32px));
+  margin: 64px auto;
+  padding: clamp(24px, 4vw, 42px);
+  border-radius: 34px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(139, 91, 62, 0.16);
+  box-shadow: var(--soft-shadow);
+  backdrop-filter: blur(12px);
+  animation: fadeUp 0.7s ease both;
+}
+
+.section h2 h1,
+.result-type {
+  font-family:
+    "Zen Maru Gothic",
+    "Hiragino Maru Gothic ProN",
+    sans-serif;
+  font-weight: 900;
+}
+
+.section h2::after {
+  content: "";
+  display: block;
+  width: 68px;
+  height: 5px;
+  margin-top: 12px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--rose), var(--caramel));
+}
+
+.section-text {
+  margin: 0 0 28px;
+  color: #75584c;
+}
+
+.quiz-form {
+  display: grid;
+  gap: 20px;
+}
+
+.question-card {
+  padding: 22px;
+  background:
+    linear-gradient(145deg, rgba(255, 253, 248, 0.96), rgba(255, 246, 234, 0.9));
+  border: 1px solid rgba(139, 91, 62, 0.16);
+  border-radius: 26px;
+  box-shadow: 0 10px 26px rgba(111, 63, 45, 0.07);
+  transition: 0.2s ease;
+}
+
+.question-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px rgba(111, 63, 45, 0.11);
+}
+
+.question-title {
+  margin: 0 0 16px;
+  font-weight: 900;
+  color: var(--brown);
+  font-size: 16px;
+}
+
+.answer-list {
+  display: grid;
+  gap: 10px;
+}
+
+.answer-option {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(139, 91, 62, 0.15);
+  border-radius: 18px;
+  cursor: pointer;
+  transition: 0.18s ease;
+}
+
+.answer-option:hover {
+  background: #fff1e7;
+  transform: translateX(3px);
+}
+
+.answer-option input {
+  accent-color: var(--caramel);
+  transform: scale(1.1);
+}
+
+.answer-option:has(input:checked) {
+  background: linear-gradient(135deg, #ffe9df, #fff7e6);
+  border-color: rgba(182, 106, 77, 0.48);
+  box-shadow: 0 8px 18px rgba(182, 106, 77, 0.12);
+  font-weight: 800;
+}
+
+.result-button {
+  margin-top: 28px;
+  width: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+.result-section {
+  background:
+    linear-gradient(145deg, rgba(255, 253, 248, 0.86), rgba(255, 235, 228, 0.7));
+}
+
+.result-card {
+  padding: clamp(24px, 4vw, 40px);
+  border-radius: 32px;
+  background:
+    radial-gradient(circle at top right, rgba(255, 225, 230, 0.75), transparent 35%),
+    #fffdf8;
+  border: 1px solid rgba(139, 91, 62, 0.18);
+  box-shadow: var(--soft-shadow);
+  animation: popIn 0.55s ease both;
+}
+
+.result-type {
+  font-size: clamp(30px, 5vw, 52px);
+  line-height: 1.2;
+  margin: 0 0 6px;
+  color: var(--brown);
+  letter-spacing: -0.04em;
+}
+
+.result-copy {
+  margin: 0 0 20px;
+  color: #b66a4d;
+  font-weight: 900;
+  font-size: 18px;
+}
+
+.score-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin: 26px 0;
+}
+
+.score-box {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(139, 91, 62, 0.16);
+  border-radius: 22px;
+  padding: 16px;
+}
+
+.score-label {
+  font-size: 13px;
+  color: #7b5b4d;
+  font-weight: 800;
+}
+
+.score-value {
+  font-size: 28px;
+  font-weight: 950;
+  color: var(--brown);
+  letter-spacing: -0.04em;
+}
+
+.bar {
+  height: 11px;
+  background: #f1dfcf;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.bar span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--rose), var(--caramel));
+  border-radius: 999px;
+  animation: growBar 0.85s ease both;
+}
+
+.type-grid,
+.compatibility-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.type-card,
+.compatibility-card {
+  position: relative;
+  padding: 20px;
+  border-radius: 26px;
+  background:
+    linear-gradient(145deg, rgba(255, 253, 248, 0.94), rgba(255, 245, 235, 0.86));
+  border: 1px solid rgba(139, 91, 62, 0.16);
+  box-shadow: 0 10px 24px rgba(111, 63, 45, 0.07);
+  overflow: hidden;
+  transition: 0.22s ease;
+}
+
+.type-card::before,
+.compatibility-card::before {
+  content: "";
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  right: -35px;
+  top: -35px;
+  border-radius: 50%;
+  background: rgba(217, 144, 144, 0.18);
+}
+
+.type-card:hover,
+.compatibility-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 38px rgba(111, 63, 45, 0.13);
+}
+
+.type-card h3,
+.compatibility-card h3 {
+  margin: 0 0 8px;
+  color: var(--brown);
+  font-size: 17px;
+  position: relative;
+}
+
+.type-card p,
+.compatibility-card p {
+  margin: 0;
+  font-size: 14px;
+  color: #75584c;
+  position: relative;
+}
+
+.tags {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+  position: relative;
+}
+
+.tag {
+  font-size: 12px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: #f5e2d3;
+  color: var(--brown2);
+  font-weight: 850;
+}
+
+.about p {
+  margin: 10px 0;
+}
+
+.footer {
+  text-align: center;
+  padding: 34px;
+  color: #8a6a5d;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes growBar {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-18px) rotate(6deg);
+  }
+}
+
+@media (max-width: 920px) {
+  .site-header {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 14px 18px;
+  }
+
+  nav {
+    justify-content: flex-start;
+  }
+
+  .score-grid,
+  .type-grid,
+  .compatibility-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .section {
+    width: calc(100% - 20px);
+    padding: 24px 15px;
+    margin: 42px auto;
+    border-radius: 26px;
+  }
+
+  .hero {
+    min-height: 76vh;
+    padding: 48px 12px;
+  }
+
+  .hero-card {
+    padding: 38px 18px;
+    border-radius: 30px;
+  }
+
+  .score-grid,
+  .type-grid,
+  .compatibility-grid {
+    grid-template-columns: 1fr;
+  }
+
+  nav a {
+    font-size: 12px;
+    padding: 6px 9px;
+  }
+
+  .question-card {
+    padding: 18px;
+  }
+
+  .answer-option {
+    font-size: 14px;
+  }
+}
+
+.progress-area.bump {
+  animation: progressBump 0.34s ease;
+}
+
+@keyframes progressBump {
+  0% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(1.018);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes syrupShine {
+  from {
+    transform: translateX(-120%);
+  }
+  to {
+    transform: translateX(120%);
+  }
+}
+
+@media (max-width: 560px) {
+  .progress-area {
+    top: 118px;
+    border-radius: 20px;
+  }
+}/* =========================
+   Syrup Bottle Progress
+========================= */
+
+.syrup-progress {
+  position: sticky;
+  top: 88px;
+  z-index: 20;
+  margin: 0 0 30px;
+  padding: 18px 18px 20px;
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.95), transparent 28%),
+    linear-gradient(145deg, rgba(255, 246, 253, 0.92), rgba(242, 225, 255, 0.78));
+  border: 1px solid rgba(194, 108, 255, 0.24);
+  box-shadow:
+    0 18px 42px rgba(138, 82, 178, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  color: #6b3f86;
+  font-weight: 900;
+  font-size: 14px;
+}
+
+.progress-label #progressCount {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  height: 30px;
+  margin-right: 4px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ff8fc7, #c26cff);
+  color: white;
+  box-shadow: 0 8px 18px rgba(194, 108, 255, 0.28);
+}
+
+.mini-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 11px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.68);
+  color: #a35ac7;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid rgba(194, 108, 255, 0.16);
+}
+
+.mini-label::before {
+  content: "✧";
+}
+
+.syrup-bottle {
+  position: relative;
+  width: min(420px, 100%);
+  height: 86px;
+  margin: 0 auto;
+}
+
+.bottle-neck {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  width: 54px;
+  height: 22px;
+  transform: translateX(-50%);
+  border-radius: 14px 14px 6px 6px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 235, 252, 0.72));
+  border: 2px solid rgba(128, 73, 160, 0.22);
+  border-bottom: none;
+  z-index: 1;
+}
+
+.bottle-glass {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 62px;
+  border-radius: 999px;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 246, 253, 0.28));
+  border: 2px solid rgba(128, 73, 160, 0.24);
+  box-shadow:
+    inset 0 3px 12px rgba(255, 255, 255, 0.9),
+    inset 0 -8px 18px rgba(128, 73, 160, 0.08),
+    0 12px 24px rgba(125, 70, 160, 0.12);
+}
+
+.syrup-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0%;
+  height: 100%;
+  border-radius: 999px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 18% 28%, rgba(255, 255, 255, 0.48), transparent 16%),
+    linear-gradient(90deg, #ff8fc7 0%, #d876ff 48%, #9b7cff 100%);
+  box-shadow:
+    inset 0 3px 10px rgba(255, 255, 255, 0.38),
+    inset 0 -8px 16px rgba(109, 53, 145, 0.2),
+    0 0 22px rgba(255, 143, 199, 0.42);
+  transition: width 0.58s cubic-bezier(.2,.9,.25,1.15);
+}
+
+.syrup-fill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      120deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.4) 35%,
+      transparent 68%
+    );
+  animation: syrupGloss 1.8s linear infinite;
+}
+
+.syrup-fill::after {
+  content: "";
+  position: absolute;
+  top: -16px;
+  right: -18px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 35%, rgba(255,255,255,0.55), transparent 32%),
+    rgba(255, 255, 255, 0.12);
+  filter: blur(1px);
+}
+
+.glass-shine {
+  position: absolute;
+  top: 10px;
+  left: 18px;
+  width: 38%;
+  height: 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.52);
+  filter: blur(0.4px);
+  pointer-events: none;
+}
+
+.bottle-line {
+  position: absolute;
+  inset: 8px 12px auto;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.7);
+  pointer-events: none;
+}
+
+.bubble {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.52);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.45);
+  animation: bubbleFloat 2.4s ease-in-out infinite;
+}
+
+.bubble-1 {
+  width: 9px;
+  height: 9px;
+  left: 18%;
+  bottom: 15px;
+}
+
+.bubble-2 {
+  width: 6px;
+  height: 6px;
+  left: 46%;
+  bottom: 28px;
+  animation-delay: -0.8s;
+}
+
+.bubble-3 {
+  width: 11px;
+  height: 11px;
+  left: 72%;
+  bottom: 13px;
+  animation-delay: -1.4s;
+}
+
+.syrup-progress.bump .syrup-bottle {
+  animation: bottlePop 0.36s ease;
+}
+
+.syrup-progress.bump .syrup-fill {
+  filter: saturate(1.08) brightness(1.04);
+}
+
+@keyframes bottlePop {
+  0% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.025);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes syrupGloss {
+  from {
+    transform: translateX(-120%);
+  }
+  to {
+    transform: translateX(120%);
+  }
+}
+
+@keyframes bubbleFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(-8px) scale(1.18);
+    opacity: 0.9;
+  }
+}
+
+@media (max-width: 560px) {
+  .syrup-progress {
+    top: 118px;
+    padding: 15px;
+    border-radius: 24px;
+  }
+
+  .progress-label {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .syrup-bottle {
+    height: 78px;
+  }
+
+  .bottle-glass {
+    height: 56px;
+  }
+}
+/* =========================
+   Cute Vertical Syrup Jar
+========================= */
+
+.syrup-jar-progress {
+  position: sticky;
+  top: 88px;
+  z-index: 20;
+  margin: 0 0 30px;
+  padding: 18px;
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at 16% 12%, rgba(255, 255, 255, 0.95), transparent 28%),
+    linear-gradient(145deg, rgba(255, 247, 253, 0.94), rgba(239, 224, 255, 0.82));
+  border: 1px solid rgba(194, 108, 255, 0.24);
+  box-shadow:
+    0 18px 42px rgba(138, 82, 178, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+}
+
+.jar-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+}
+
+.jar {
+  position: relative;
+  width: 86px;
+  height: 122px;
+  flex: 0 0 auto;
+}
+
+.jar-lid {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 62px;
+  height: 18px;
+  transform: translateX(-50%);
+  border-radius: 12px 12px 6px 6px;
+  background:
+    linear-gradient(180deg, #fff7ff 0%, #e7d1ff 100%);
+  border: 2px solid rgba(115, 68, 150, 0.28);
+  box-shadow:
+    inset 0 2px 0 rgba(255,255,255,0.9),
+    0 6px 14px rgba(130, 76, 170, 0.12);
+  z-index: 3;
+}
+
+.jar-body {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 0;
+  height: 106px;
+  border-radius: 24px 24px 28px 28px;
+  overflow: hidden;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.78), rgba(255,245,253,0.36));
+  border: 2px solid rgba(115, 68, 150, 0.24);
+  box-shadow:
+    inset 0 4px 14px rgba(255,255,255,0.9),
+    inset 0 -10px 20px rgba(120, 70, 160, 0.08),
+    0 12px 22px rgba(125, 70, 160, 0.13);
+}
+
+.jar-body::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 14px;
+  right: 14px;
+  height: 16px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.58);
+  z-index: 4;
+}
+
+.jar-fill {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 0%;
+  border-radius: 20px 20px 26px 26px;
+  background:
+    radial-gradient(circle at 28% 18%, rgba(255,255,255,0.44), transparent 14%),
+    linear-gradient(180deg, #ff9ed0 0%, #d778ff 48%, #9f7cff 100%);
+  box-shadow:
+    inset 0 4px 12px rgba(255,255,255,0.38),
+    inset 0 -10px 18px rgba(95, 48, 135, 0.22),
+    0 0 22px rgba(255, 143, 199, 0.42);
+  transition: height 0.62s cubic-bezier(.2,.9,.25,1.15);
+  overflow: hidden;
+}
+
+.jar-fill::before {
+  content: "";
+  position: absolute;
+  left: -20%;
+  right: -20%;
+  top: -9px;
+  height: 18px;
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse at center, rgba(255,255,255,0.45), rgba(255,255,255,0.12) 55%, transparent 70%);
+  animation: syrupWave 2.6s ease-in-out infinite;
+}
+
+.jar-fill::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      120deg,
+      transparent 0%,
+      rgba(255,255,255,0.34) 38%,
+      transparent 70%
+    );
+  animation: syrupGloss 1.8s linear infinite;
+}
+
+.jar-shine {
+  position: absolute;
+  top: 18px;
+  left: 13px;
+  width: 14px;
+  height: 58px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.46);
+  filter: blur(0.2px);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.jar-bubble {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.52);
+  box-shadow: 0 0 8px rgba(255,255,255,0.45);
+  animation: jarBubbleFloat 2.4s ease-in-out infinite;
+}
+
+.jar-bubble.b1 {
+  width: 8px;
+  height: 8px;
+  left: 22%;
+  bottom: 18px;
+}
+
+.jar-bubble.b2 {
+  width: 6px;
+  height: 6px;
+  left: 55%;
+  bottom: 38px;
+  animation-delay: -0.8s;
+}
+
+.jar-bubble.b3 {
+  width: 10px;
+  height: 10px;
+  left: 70%;
+  bottom: 14px;
+  animation-delay: -1.4s;
+}
+
+.jar-info {
+  min-width: 0;
+}
+
+.jar-info .mini-label {
+  width: fit-content;
+  margin: 0 0 8px;
+}
+
+.jar-count {
+  margin: 0;
+  color: #6b3f86;
+  font-weight: 900;
+  font-size: 18px;
+}
+
+.jar-count #progressCount {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  height: 34px;
+  margin-right: 4px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ff8fc7, #c26cff);
+  color: white;
+  box-shadow: 0 8px 18px rgba(194, 108, 255, 0.28);
+}
+
+.jar-caption {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: #8a609c;
+  font-weight: 700;
+}
+
+.syrup-jar-progress.bump .jar {
+  animation: jarPop 0.36s ease;
+}
+
+@keyframes jarPop {
+  0% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.05) rotate(-1deg);
+  }
+  100% {
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes syrupWave {
+  0%, 100% {
+    transform: translateX(0) scaleX(1);
+  }
+  50% {
+    transform: translateX(10px) scaleX(1.08);
+  }
+}
+
+@keyframes jarBubbleFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(-9px) scale(1.18);
+    opacity: 0.9;
+  }
+}
+
+@media (max-width: 560px) {
+  .syrup-jar-progress {
+    top: 118px;
+    padding: 14px;
+    border-radius: 24px;
+  }
+
+  .jar-wrap {
+    gap: 14px;
+    justify-content: flex-start;
+  }
+
+  .jar {
+    width: 74px;
+    height: 106px;
+  }
+
+  .jar-body {
+    height: 92px;
+  }
+
+  .jar-caption {
+    display: none;
+  }
+}
+/* =========================
+   Cute Vertical Syrup Jar
+========================= */
+
+.syrup-jar-progress {
+  position: sticky;
+  top: 88px;
+  z-index: 20;
+  margin: 0 0 30px;
+  padding: 18px;
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at 16% 12%, rgba(255, 255, 255, 0.95), transparent 28%),
+    linear-gradient(145deg, rgba(255, 247, 253, 0.94), rgba(239, 224, 255, 0.82));
+  border: 1px solid rgba(194, 108, 255, 0.24);
+  box-shadow:
+    0 18px 42px rgba(138, 82, 178, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+}
+
+.jar-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+}
+
+.jar {
+  position: relative;
+  width: 86px;
+  height: 122px;
+  flex: 0 0 auto;
+}
+
+.jar-lid {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 62px;
+  height: 18px;
+  transform: translateX(-50%);
+  border-radius: 12px 12px 6px 6px;
+  background:
+    linear-gradient(180deg, #fff7ff 0%, #e7d1ff 100%);
+  border: 2px solid rgba(115, 68, 150, 0.28);
+  box-shadow:
+    inset 0 2px 0 rgba(255,255,255,0.9),
+    0 6px 14px rgba(130, 76, 170, 0.12);
+  z-index: 3;
+}
+
+.jar-body {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 0;
+  height: 106px;
+  border-radius: 24px 24px 28px 28px;
+  overflow: hidden;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.78), rgba(255,245,253,0.36));
+  border: 2px solid rgba(115, 68, 150, 0.24);
+  box-shadow:
+    inset 0 4px 14px rgba(255,255,255,0.9),
+    inset 0 -10px 20px rgba(120, 70, 160, 0.08),
+    0 12px 22px rgba(125, 70, 160, 0.13);
+}
+
+.jar-body::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 14px;
+  right: 14px;
+  height: 16px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.58);
+  z-index: 4;
+}
+
+.jar-fill {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 0%;
+  border-radius: 20px 20px 26px 26px;
+  background:
+    radial-gradient(circle at 28% 18%, rgba(255,255,255,0.44), transparent 14%),
+    linear-gradient(180deg, #ff9ed0 0%, #d778ff 48%, #9f7cff 100%);
+  box-shadow:
+    inset 0 4px 12px rgba(255,255,255,0.38),
+    inset 0 -10px 18px rgba(95, 48, 135, 0.22),
+    0 0 22px rgba(255, 143, 199, 0.42);
+  transition: height 0.62s cubic-bezier(.2,.9,.25,1.15);
+  overflow: hidden;
+}
+
+.jar-fill::before {
+  content: "";
+  position: absolute;
+  left: -20%;
+  right: -20%;
+  top: -9px;
+  height: 18px;
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse at center, rgba(255,255,255,0.45), rgba(255,255,255,0.12) 55%, transparent 70%);
+  animation: syrupWave 2.6s ease-in-out infinite;
+}
+
+.jar-fill::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      120deg,
+      transparent 0%,
+      rgba(255,255,255,0.34) 38%,
+      transparent 70%
+    );
+  animation: syrupGloss 1.8s linear infinite;
+}
+
+.jar-shine {
+  position: absolute;
+  top: 18px;
+  left: 13px;
+  width: 14px;
+  height: 58px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.46);
+  filter: blur(0.2px);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.jar-bubble {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.52);
+  box-shadow: 0 0 8px rgba(255,255,255,0.45);
+  animation: jarBubbleFloat 2.4s ease-in-out infinite;
+}
+
+.jar-bubble.b1 {
+  width: 8px;
+  height: 8px;
+  left: 22%;
+  bottom: 18px;
+}
+
+.jar-bubble.b2 {
+  width: 6px;
+  height: 6px;
+  left: 55%;
+  bottom: 38px;
+  animation-delay: -0.8s;
+}
+
+.jar-bubble.b3 {
+  width: 10px;
+  height: 10px;
+  left: 70%;
+  bottom: 14px;
+  animation-delay: -1.4s;
+}
+
+.jar-info {
+  min-width: 0;
+}
+
+.jar-info .mini-label {
+  width: fit-content;
+  margin: 0 0 8px;
+}
+
+.jar-count {
+  margin: 0;
+  color: #6b3f86;
+  font-weight: 900;
+  font-size: 18px;
+}
+
+.jar-count #progressCount {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  height: 34px;
+  margin-right: 4px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ff8fc7, #c26cff);
+  color: white;
+  box-shadow: 0 8px 18px rgba(194, 108, 255, 0.28);
+}
+
+.jar-caption {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: #8a609c;
+  font-weight: 700;
+}
+
+.syrup-jar-progress.bump .jar {
+  animation: jarPop 0.36s ease;
+}
+
+@keyframes jarPop {
+  0% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.05) rotate(-1deg);
+  }
+  100% {
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes syrupWave {
+  0%, 100% {
+    transform: translateX(0) scaleX(1);
+  }
+  50% {
+    transform: translateX(10px) scaleX(1.08);
+  }
+}
+
+@keyframes jarBubbleFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(-9px) scale(1.18);
+    opacity: 0.9;
+  }
+}
+
+@media (max-width: 560px) {
+  .syrup-jar-progress {
+    top: 118px;
+    padding: 14px;
+    border-radius: 24px;
+  }
+
+  .jar-wrap {
+    gap: 14px;
+    justify-content: flex-start;
+  }
+
+  .jar {
+    width: 74px;
+    height: 106px;
+  }
+
+  .jar-body {
+    height: 92px;
+  }
+
+  .jar-caption {
+    display: none;
+  }
+}/* =========================
+   One Question + Loading + Rich Result
+========================= */
+
+.quiz-step-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  color: #8a609c;
+  font-weight: 900;
+  font-size: 14px;
+}
+
+.quiz-step-pill {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(194, 108, 255, 0.18);
+  color: #a35ac7;
+}
+
+.question-card.single-question {
+  animation: questionSlide 0.38s ease both;
+}
+
+@keyframes questionSlide {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+.result-button.next-mode::after {
+  content: " →";
+}
+
+.result-button.finish-mode {
+  background: linear-gradient(135deg, #ff8fc7, #c26cff, #9b7cff);
+}
+
+.loading-section {
+  text-align: center;
+}
+
+.loading-card {
+  padding: 46px 20px;
+  border-radius: 34px;
+  background:
+    radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 0.9), transparent 34%),
+    linear-gradient(145deg, rgba(255, 247, 253, 0.96), rgba(239, 224, 255, 0.82));
+  border: 1px solid rgba(194, 108, 255, 0.24);
+  box-shadow: 0 18px 42px rgba(138, 82, 178, 0.15);
+}
+
+.pouring-syrup {
+  width: 90px;
+  height: 118px;
+  margin: 0 auto 18px;
+  border-radius: 28px 28px 32px 32px;
+  border: 2px solid rgba(115, 68, 150, 0.24);
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.78), rgba(255,245,253,0.36));
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    inset 0 4px 14px rgba(255,255,255,0.9),
+    0 12px 22px rgba(125, 70, 160, 0.13);
+}
+
+.pouring-syrup::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 72%;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255,255,255,0.44), transparent 14%),
+    linear-gradient(180deg, #ff9ed0 0%, #d778ff 48%, #9f7cff 100%);
+  animation: loadingPour 1.35s ease-in-out infinite alternate;
+}
+
+.pouring-syrup::after {
+  content: "";
+  position: absolute;
+  left: 22px;
+  top: 18px;
+  width: 15px;
+  height: 64px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.46);
+}
+
+.loading-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 900;
+  color: #6b3f86;
+}
+
+.loading-text {
+  margin: 8px 0 0;
+  color: #8a609c;
+  font-weight: 700;
+}
+
+@keyframes loadingPour {
+  from {
+    height: 38%;
+  }
+  to {
+    height: 88%;
+  }
+}
+
+.result-hero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 22px;
+  align-items: center;
+}
+
+.result-main-text {
+  font-size: 16px;
+  color: #6d4f7a;
+}
+
+.result-badge {
+  display: inline-flex;
+  width: fit-content;
+  padding: 7px 13px;
+  border-radius: 999px;
+  background: rgba(255, 143, 199, 0.16);
+  color: #a35ac7;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+.result-orb {
+  width: 160px;
+}
+
+#loading {
+  #loading {
+  display: none !important;
+}
+#loading {
+  #loading {
+  display: none !important;
+}
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255, 190, 225, 0.55), transparent 30%),
+    radial-gradient(circle at 75% 70%, rgba(190, 150, 255, 0.45), transparent 32%),
+    linear-gradient(135deg, #fff4fb, #f2e8ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+#loading.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loading-card {
+  width: min(86vw, 360px);
+  padding: 34px 28px;
+  text-align: center;
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(190, 145, 220, 0.35);
+  box-shadow: 0 22px 50px rgba(170, 110, 200, 0.18);
+  backdrop-filter: blur(12px);
+}
+
+.loading-bottle {
+  width: 54px;
+  height: 92px;
+  margin: 0 auto 22px;
+  border: 2px solid #b889d8;
+  border-radius: 20px 20px 14px 14px;
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.loading-bottle::before {
+  content: "";
+  position: absolute;
+  top: -16px;
+  left: 15px;
+  width: 20px;
+  height: 18px;
+  border: 2px solid #b889d8;
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+  background: #fff4fb;
+}
+
+.loading-liquid {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 15%;
+  background: linear-gradient(180deg, #f4a3ca, #b98ae8);
+  transition: height 0.25s ease;
+}
+
+.loading-title {
+  color: #5d3a72;
+  font-weight: bold;
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+
+.loading-text {
+  color: #9c72b7;
+  font-size: 13px;
+  margin-bottom: 18px;
+}
+
+.loading-bar {
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(190, 145, 220, 0.22);
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.loading-progress {
+  width: 0%;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ec91c6, #ad85e8);
+  transition: width 0.25s ease;
+}
+
+.loading-percent {
+  color: #b779d1;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+}
+
+.loading-logo {
+  font-family: serif;
+  font-size: 42px;
+  color: #9b65c9;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+}
+#loading p {
+  color: #b989d8;
+  letter-spacing: 0.12em;
+}
+
+.hero {
+  min-height: 100vh;
+  padding: 110px 20px 80px;
+  background:
+    radial-gradient(circle at 20% 18%, rgba(255, 180, 220, 0.45), transparent 28%),
+    radial-gradient(circle at 82% 20%, rgba(190, 150, 255, 0.35), transparent 30%),
+    linear-gradient(180deg, #fff8fd, #f6eeff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-inner {
+  max-width: 780px;
+  width: 100%;
+}
+
+.hero-label {
+  color: #a77ac7;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  margin-bottom: 18px;
+}
+
+.hero h1 {
+  color: #5d3a72;
+  font-size: clamp(34px, 8vw, 62px);
+  line-height: 1.45;
+  margin-bottom: 22px;
+}
+
+.hero-copy {
+  color: #80638d;
+  line-height: 2;
+  margin-bottom: 36px;
+}
+/* .chapter-* セレクタは削除されました */
+
+.start-btn {
+  display: inline-block;
+  padding: 16px 38px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ec91c6, #ad85e8);
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 14px 30px rgba(175, 110, 205, 0.35);
+}
+
+.loading-percent {
+  color: #b779d1;
+  font-size: 12px;
+  letter-spacing: 0.12em;}
+
+#quiz {
+  display: none;
+}
+
+#quiz.is-show {
+  display: block;
+}
+.hero {
+  min-height: 100vh;
+  padding: 110px 20px 80px;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(255, 180, 220, 0.38), transparent 28%),
+    radial-gradient(circle at 82% 24%, rgba(190, 150, 255, 0.32), transparent 30%),
+    linear-gradient(180deg, #fff8fd, #f6eeff);
+  text-align: center;
+}
+
+.hero-inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.hero-label {
+  color: #a77ac7;
+  font-size: 12px;
+  letter-spacing: 0.24em;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  color: #5d3a72;
+  font-size: clamp(34px, 8vw, 64px);
+  line-height: 1.45;
+  margin-bottom: 28px;
+}
+
+.hero-story {
+  max-width: 620px;
+  margin: 0 auto 46px;
+  color: #80638d;
+  line-height: 2.2;
+  font-size: 15px;
+}
+
+.chapter-menu {
+  width: min(720px, 100%);
+  margin: 0 auto 38px;
+  border-top: 1px solid rgba(93, 58, 114, 0.18);
+}
+
+.chapter-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  align-items: center;
+  gap: 18px;
+  padding: 22px 6px;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(93, 58, 114, 0.18);
+  overflow: hidden;
+}
+
+.chapter-item::before {
+  content: "";
+  position: absolute;
+  inset: 9px 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(236,145,198,0.18), rgba(173,133,232,0.14));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s ease;
+}
+
+.chapter-item:hover::before {
+  transform: scaleX(1);
+}
+
+.chapter-number {
+  position: relative;
+  color: #c58be0;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.chapter-name {
+  position: relative;
+  color: #5d3a72;
+  font-size: clamp(24px, 5vw, 44px);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+}
+
+.start-btn {
+  border: none;
+  display: inline-block;
+  padding: 16px 42px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ec91c6, #ad85e8);
+  color: white;
+  font-weight: 900;
+  box-shadow: 0 14px 30px rgba(175, 110, 205, 0.35);
+  cursor: pointer;
+}
+
+.start-btn:hover {
+  transform: translateY(-3px);
+}
+.type-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.type-modal.hidden {
+  display: none;
+}
+
+.type-modal-bg {
+  position: absolute;
+  inset: 0;
+  background: rgba(58, 32, 76, 0.45);
+  backdrop-filter: blur(8px);
+}
+
+.type-modal-card {
+  position: relative;
+  z-index: 1;
+  width: min(760px, 100%);
+  max-height: 86vh;
+  overflow-y: auto;
+  padding: 34px;
+  border-radius: 32px;
+  background:
+    radial-gradient(circle at 90% 0%, rgba(255, 190, 225, 0.42), transparent 32%),
+    linear-gradient(145deg, #fffaff, #f7edff);
+  box-shadow: 0 28px 70px rgba(76, 42, 110, 0.28);
+  animation: modalPop 0.32s ease both;
+}
+
+.type-modal-close {
+  position: sticky;
+  top: 0;
+  margin-left: auto;
+  display: block;
+  border: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  background: #fff;
+  color: #8d5caf;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modal-group {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(236, 145, 198, 0.18);
+  color: #9d62bd;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+.modal-title {
+  font-size: clamp(30px, 6vw, 48px);
+  color: #5d3a72;
+  margin: 0 0 8px;
+}
+
+.modal-catch {
+  color: #b36ac8;
+  font-weight: 900;
+  font-size: 18px;
+  margin-bottom: 22px;
+}
+
+.modal-section {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(150, 100, 180, 0.18);
+}
+
+.modal-section h4 {
+  color: #6b3f86;
+  font-size: 18px;
+  margin: 0 0 10px;
+}
+
+.modal-section li {
+  margin: 8px 0;
+}
+
+.modal-manual {
+  line-height: 2;
+  color: #654276;
+}
+
+@keyframes modalPop {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@media (max-width: 700px) {
+  .type-modal {
+    align-items: flex-start;
+    padding: 16px 12px;
+    overflow-y: auto;
+  }
+
+  .type-modal-card {
+    width: 100%;
+    max-height: none;
+    margin-top: 12px;
+    padding: 24px 18px;
+    border-radius: 26px;
+  }
+
+  .type-modal-close {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+
+  .modal-title {
+    font-size: 30px;
+    line-height: 1.35;
+  }
+
+  .modal-catch {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .modal-manual {
+    font-size: 14px;
+    line-height: 1.9;
+  }
+
+  .modal-section h4 {
+    font-size: 16px;
+  }
+
+  .modal-section li {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+}
+.menu-button {
+  display: none;
+}
+
+.site-nav {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+@media (max-width: 700px) {
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 12px 16px;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 14px;
+    letter-spacing: 0.08em;
+  }
+
+  .menu-button {
+    display: block;
+    margin-left: auto;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.8);
+    color: #6b3f86;
+    font-size: 22px;
+    font-weight: bold;
+    box-shadow: 0 8px 20px rgba(112, 68, 150, 0.12);
+  }
+
+  .site-nav {
+    display: none;
+    position: absolute;
+    top: 64px;
+    left: 16px;
+    right: 16px;
+    padding: 16px;
+    border-radius: 24px;
+    background: rgba(255, 250, 255, 0.96);
+    border: 1px solid rgba(190, 145, 220, 0.28);
+    box-shadow: 0 18px 40px rgba(112, 68, 150, 0.18);
+    backdrop-filter: blur(14px);
+  }
+
+  .site-nav.is-open {
+    display: grid;
+    gap: 8px;
+  }
+
+  .site-nav a {
+    display: block;
+    padding: 12px 14px;
+    border-radius: 16px;
+    color: #5d3a72;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 900;
+    background: rgba(255, 244, 252, 0.7);
+  }
+}
+/* =========================
+   World Animation
+========================= */
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255, 180, 220, 0.25) 0 8px, transparent 9px),
+    radial-gradient(circle at 80% 20%, rgba(190, 150, 255, 0.22) 0 7px, transparent 8px),
+    radial-gradient(circle at 70% 75%, rgba(255, 210, 240, 0.22) 0 9px, transparent 10px),
+    radial-gradient(circle at 30% 85%, rgba(210, 180, 255, 0.18) 0 6px, transparent 7px);
+  background-size: 420px 420px;
+  animation: floatingLights 14s ease-in-out infinite alternate;
+}
+
+@keyframes floatingLights {
+  from {
+    transform: translateY(0) scale(1);
+    opacity: 0.75;
+  }
+
+  to {
+    transform: translateY(-24px) scale(1.04);
+    opacity: 1;
+  }
+}
+
+.hero-label,
+.hero h1,
+.hero-story,
+.chapter-menu,
+.start-btn {
+  animation: fadeRise 0.9s ease both;
+}
+
+.hero h1 {
+  animation-delay: 0.12s;
+}
+
+.hero-story {
+  animation-delay: 0.24s;
+}
+
+.chapter-menu {
+  animation-delay: 0.36s;
+}
+
+.start-btn {
+  animation-delay: 0.48s;
+}
+
+@keyframes fadeRise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.chapter-item::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.55),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+}
+
+.chapter-item:hover::after {
+  left: 120%;
+}
+.type-card-button {
+  cursor: pointer;
+  text-align: left;
+  border: 1px solid rgba(190, 145, 220, 0.24);
+}
+
+.type-card-button::after {
+  content: "READ MORE";
+  display: inline-block;
+  margin-top: 14px;
+  color: #b779d1;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+}
+
+.type-card-button:hover {
+  transform: translateY(-8px) rotate(-0.4deg);
+  box-shadow: 0 22px 48px rgba(145, 90, 180, 0.18);
+}
+
+.type-card-button:hover h3 {
+  color: #a45ccd;
+}
+.start-btn,
+.result-button,
+.share-button,
+.menu-button {
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    filter 0.22s ease;
+}
+
+.start-btn:hover,
+.result-button:hover,
+.share-button:hover,
+.menu-button:hover {
+  transform: translateY(-3px) scale(1.03);
+  filter: brightness(1.04);
+}
+
+.start-btn:active,
+.result-button:active,
+.share-button:active,
+.menu-button:active {
+  transform: translateY(1px) scale(0.97);
+}
+@media (max-width: 700px) {
+  body::after {
+    animation-duration: 20s;
+    opacity: 0.65;
+  }
+
+  .type-card-button:hover,
+  .chapter-item:hover,
+  .start-btn:hover {
+    transform: none;
+  }
+}
+/* =========================
+   Result Loading Animation
+========================= */
+
+.result-loading-section {
+  text-align: center;
+}
+
+.result-loading-card {
+  padding: 46px 22px;
+  border-radius: 34px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255,255,255,0.9), transparent 34%),
+    linear-gradient(145deg, rgba(255, 247, 253, 0.96), rgba(239, 224, 255, 0.86));
+  border: 1px solid rgba(194, 108, 255, 0.24);
+  box-shadow: 0 18px 42px rgba(138, 82, 178, 0.15);
+}
+
+.result-loading-bottle {
+  width: 86px;
+  height: 118px;
+  margin: 0 auto 22px;
+  border-radius: 28px 28px 34px 34px;
+  border: 2px solid rgba(115, 68, 150, 0.26);
+  background: rgba(255, 255, 255, 0.55);
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    inset 0 4px 14px rgba(255,255,255,0.9),
+    0 14px 28px rgba(125, 70, 160, 0.14);
+}
+
+.result-loading-bottle::before {
+  content: "";
+  position: absolute;
+  top: 16px;
+  left: 18px;
+  width: 14px;
+  height: 58px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.46);
+  z-index: 2;
+}
+
+.result-loading-liquid {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 20%;
+  background:
+    radial-gradient(circle at 30% 18%, rgba(255,255,255,0.44), transparent 16%),
+    linear-gradient(180deg, #ff9ed0 0%, #d778ff 48%, #9f7cff 100%);
+  animation: resultPour 2.2s ease-in-out infinite;
+}
+
+.result-loading-liquid::before {
+  content: "";
+  position: absolute;
+  left: -20%;
+  right: -20%;
+  top: -10px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.28);
+  animation: resultWave 1.8s ease-in-out infinite;
+}
+
+.result-loading-title {
+  margin: 0;
+  color: #6b3f86;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.result-loading-text {
+  margin: 10px 0 0;
+  color: #8a609c;
+  font-weight: 700;
+}
+
+.result-loading-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.result-loading-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #c58be0;
+  animation: dotBounce 1s ease-in-out infinite;
+}
+
+.result-loading-dots span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.result-loading-dots span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes resultPour {
+  0% {
+    height: 18%;
+  }
+
+  50% {
+    height: 78%;
+  }
+
+  100% {
+    height: 92%;
+  }
+}
+
+@keyframes resultWave {
+  0%, 100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(12px);
+  }
+}
+
+@keyframes dotBounce {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.45;
+  }
+
+  50% {
+    transform: translateY(-8px);
+    opacity: 1;
+  }
+}/* =========================
+   Mobile Modal Fix
+========================= */
+
+.type-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  overflow-y: auto;
+}
+
+.type-modal-card {
+  position: relative;
+}
+
+.type-modal-close {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 100000;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #6b3f86;
+  font-size: 28px;
+  line-height: 1;
+  box-shadow: 0 10px 24px rgba(112, 68, 150, 0.22);
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+@media (max-width: 700px) {
+  .type-modal {
+    align-items: flex-start;
+    justify-content: center;
+    padding: 72px 12px 24px;
+  }
+
+  .type-modal-card {
+    width: 100%;
+    max-height: none;
+    margin: 0;
+    padding: 26px 18px;
+    border-radius: 26px;
+  }
+
+  .modal-title {
+    font-size: 30px;
+    line-height: 1.35;
+  }
+
+  .modal-manual {
+    font-size: 14px;
+    line-height: 1.9;
+  }
+}
+.type-modal-close {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 100000;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.96);
+  color: #6b3f86;
+  font-size: 28px;
+  line-height: 1;
+  box-shadow: 0 10px 24px rgba(112, 68, 150, 0.22);
+  pointer-events: auto;
+}
+/* =========================
+   Modal Always In Front
+========================= */
+
+.type-modal {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 99999 !important;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  padding: 72px 16px 28px;
+  overflow-y: auto;
+}
+
+.type-modal.hidden {
+  display: none !important;
+}
+
+.type-modal-bg {
+  position: fixed;
+  inset: 0;
+  background: rgba(58, 32, 76, 0.45);
+  backdrop-filter: blur(8px);
+}
+
+.type-modal-card {
+  position: relative;
+  z-index: 1;
+
+  width: min(760px, 100%);
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+
+  margin: 0 auto;
+  padding: 34px;
+  border-radius: 32px;
+}
+
+@media (max-width: 700px) {
+  .type-modal {
+    padding: 68px 12px 24px;
+  }
+
+  .type-modal-card {
+    width: 100%;
+    max-height: calc(100vh - 92px);
+    padding: 24px 18px;
+    border-radius: 26px;
+  }
+}
+/* =========================
+   Cute Syrup Encyclopedia Cards
+========================= */
+
+#types h2::before {
+  content: "Syrup Encyclopedia";
+  display: block;
+  margin-bottom: 6px;
+  color: #b98ae8;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.type-grid {
+  gap: 22px;
+}
+
+.type-card-button {
+  position: relative;
+  min-height: 220px;
+  padding: 26px 22px 22px;
+  border-radius: 30px;
+  text-align: left;
+  cursor: pointer;
+  border: 1px solid rgba(190, 145, 220, 0.28);
+  background:
+    radial-gradient(circle at 85% 12%, rgba(255, 190, 225, 0.5), transparent 28%),
+    radial-gradient(circle at 12% 88%, rgba(190, 150, 255, 0.28), transparent 30%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(255, 244, 252, 0.86));
+  box-shadow: 0 14px 34px rgba(145, 90, 180, 0.12);
+  overflow: hidden;
+}
+
+.type-card-button::before {
+  content: "SYRUP";
+  position: absolute;
+  right: -8px;
+  bottom: 10px;
+  color: rgba(93, 58, 114, 0.055);
+  font-size: 46px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  pointer-events: none;
+}
+
+.type-card-button h3 {
+  margin-top: 18px;
+  color: #5d3a72;
+  font-size: 20px;
+  line-height: 1.45;
+}
+
+.type-card-button p {
+  color: #7f6090;
+}
+
+.type-card-button p strong {
+  display: inline-flex;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: rgba(236, 145, 198, 0.16);
+  color: #9d62bd;
+  font-size: 12px;
+}
+
+.type-card-button .tags {
+  margin-top: 18px;
+}
+
+.type-card-button .tag {
+  background: rgba(255, 255, 255, 0.72);
+  color: #b36ac8;
+  border: 1px solid rgba(190, 145, 220, 0.22);
+}
+
+.type-card-button::after {
+  content: "READ MORE →";
+  display: inline-block;
+  margin-top: 18px;
+  color: #b779d1;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+}
+
+.type-card-button:hover {
+  transform: translateY(-8px) rotate(-0.5deg);
+  box-shadow: 0 24px 52px rgba(145, 90, 180, 0.2);
+}
+
+.type-card-button:hover h3 {
+  color: #a45ccd;
+}
+@media (max-width: 700px) {
+  .type-grid {
+    gap: 16px;
+  }
+
+  .type-card-button {
+    min-height: 180px;
+    padding: 22px 18px 20px;
+    border-radius: 26px;
+  }
+
+  .type-card-button h3 {
+    font-size: 18px;
+  }
+
+  .type-card-button::before {
+    font-size: 38px;
+  }
+}
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+.hero::before {
+  width: 220px;
+  height: 220px;
+  left: 8%;
+  top: 18%;
+  background: radial-gradient(circle, rgba(255, 180, 220, 0.45), transparent 68%);
+  animation: syrupFloatA 7s ease-in-out infinite;
+}
+
+.hero::after {
+  width: 160px;
+  height: 160px;
+  right: 8%;
+  bottom: 18%;
+  background: radial-gradient(circle, rgba(190, 150, 255, 0.38), transparent 68%);
+  animation: syrupFloatB 8s ease-in-out infinite;
+}
+
+@keyframes syrupFloatA {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-18px) scale(1.04);
+  }
+}
+
+@keyframes syrupFloatB {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(16px) scale(1.06);
+  }
+}
+.section h2 {
+  position: relative;
+  color: #5d3a72;
+  font-size: clamp(26px, 5vw, 42px);
+  letter-spacing: 0.04em;
+}
+
+#types h2::before {
+  content: "Syrup Encyclopedia";
+}
+
+#compatibility h2::before {
+  content: "Pairing Menu";
+}
+
+#about h2::before {
+  content: "About This Story";
+}
+
+.section h2::before {
+  display: block;
+  margin-bottom: 6px;
+  color: #b98ae8;
+  font-size: 12px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+.compatibility-card {
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 85% 14%, rgba(255, 190, 225, 0.42), transparent 30%),
+    linear-gradient(145deg, rgba(255,255,255,0.94), rgba(247,237,255,0.88));
+  border: 1px solid rgba(190, 145, 220, 0.25);
+}
+
+.compatibility-card h3::before {
+  content: "PAIRING";
+  display: block;
+  margin-bottom: 6px;
+  color: #c58be0;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+}
+
+.compatibility-card p {
+  padding: 7px 0;
+  border-bottom: 1px dashed rgba(150, 100, 180, 0.16);
+}
+
+.compatibility-card p:last-of-type {
+  border-bottom: none;
+}
+
+.compatibility-card:hover {
+  transform: translateY(-7px);
+}
+.start-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.start-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.55),
+    transparent
+  );
+  transform: skewX(-20deg);
+}
+
+.start-btn:hover::before {
+  animation: buttonShine 0.75s ease;
+}
+
+@keyframes buttonShine {
+  from {
+    left: -80%;
+  }
+  to {
+    left: 130%;
+  }
+}
+/* ==================================================
+   Syrup Atelier Upgrade Pack
+   トップ・図鑑・相性・結果・アニメーション強化
+================================================== */
+
+
+/* ---------- 全体：ふわふわ粒・工房感 ---------- */
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 18% 28%, rgba(255, 180, 220, 0.28) 0 7px, transparent 8px),
+    radial-gradient(circle at 82% 18%, rgba(190, 150, 255, 0.24) 0 7px, transparent 8px),
+    radial-gradient(circle at 72% 78%, rgba(255, 210, 240, 0.22) 0 9px, transparent 10px),
+    radial-gradient(circle at 28% 88%, rgba(210, 180, 255, 0.18) 0 6px, transparent 7px);
+  background-size: 420px 420px;
+  animation: atelierFloat 18s ease-in-out infinite alternate;
+}
+
+@keyframes atelierFloat {
+  from {
+    transform: translateY(0) scale(1);
+    opacity: 0.65;
+  }
+
+  to {
+    transform: translateY(-28px) scale(1.04);
+    opacity: 1;
+  }
+}
+
+
+/* ---------- トップ：Syrup Atelier感 ---------- */
+
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  pointer-events: none;
+  filter: blur(1px);
+}
+
+.hero::before {
+  width: 240px;
+  height: 240px;
+  left: 6%;
+  top: 16%;
+  background: radial-gradient(circle, rgba(255, 170, 218, 0.42), transparent 68%);
+  animation: syrupFloatA 7s ease-in-out infinite;
+}
+
+.hero::after {
+  width: 170px;
+  height: 170px;
+  right: 8%;
+  bottom: 18%;
+  background: radial-gradient(circle, rgba(190, 150, 255, 0.34), transparent 68%);
+  animation: syrupFloatB 8s ease-in-out infinite;
+}
+
+@keyframes syrupFloatA {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-18px) scale(1.05);
+  }
+}
+
+@keyframes syrupFloatB {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(16px) scale(1.06);
+  }
+}
+
+.hero-label::before {
+  content: "Welcome to Syrup Atelier";
+  display: block;
+  margin-bottom: 8px;
+  color: #c58be0;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+}
+
+.hero-label,
+.hero h1,
+.hero-story,
+.hero-copy,
+.chapter-menu,
+.start-btn {
+  animation: fadeRise 0.9s ease both;
+}
+
+.hero h1 {
+  animation-delay: 0.1s;
+}
+
+.hero-story,
+.hero-copy {
+  animation-delay: 0.2s;
+}
+
+.chapter-menu {
+  animation-delay: 0.35s;
+}
+
+.start-btn {
+  animation-delay: 0.5s;
+}
+
+@keyframes fadeRise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ---------- Chapter：工房の案内板っぽく ---------- */
+
+.chapter-menu {
+  position: relative;
+  padding: 14px 0;
+}
+
+.chapter-menu::before {
+  content: "Atelier Guide";
+  display: block;
+  margin-bottom: 14px;
+  color: #b98ae8;
+  font-size: 12px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+}
+
+.chapter-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.chapter-item::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.58),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+}
+
+.chapter-item:hover::after {
+  left: 120%;
+}
+
+.chapter-item:hover .chapter-name {
+  transform: translateX(8px);
+}
+
+.chapter-name {
+  transition: transform 0.28s ease, color 0.28s ease;
+}
+
+
+/* ---------- ボタン：きらっと注ぐ ---------- */
+
+.start-btn,
+.result-button,
+.share-button,
+.menu-button {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    filter 0.22s ease;
+}
+
+.start-btn::before,
+.result-button::before,
+.share-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -90%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.55),
+    transparent
+  );
+  transform: skewX(-20deg);
+}
+
+.start-btn:hover::before,
+.result-button:hover::before,
+.share-button:hover::before {
+  animation: buttonShine 0.75s ease;
+}
+
+@keyframes buttonShine {
+  from {
+    left: -90%;
+  }
+
+  to {
+    left: 130%;
+  }
+}
+
+.start-btn:hover,
+.result-button:hover,
+.share-button:hover,
+.menu-button:hover {
+  transform: translateY(-3px) scale(1.03);
+  filter: brightness(1.04);
+}
+
+.start-btn:active,
+.result-button:active,
+.share-button:active,
+.menu-button:active {
+  transform: translateY(1px) scale(0.97);
+}
+
+
+/* ---------- セクション見出し：作品サイト感 ---------- */
+
+.section h2 {
+  position: relative;
+  color: #5d3a72;
+  font-size: clamp(26px, 5vw, 42px);
+  letter-spacing: 0.04em;
+}
+
+.section h2::before {
+  display: block;
+  margin-bottom: 6px;
+  color: #b98ae8;
+  font-size: 12px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+#quiz h2::before {
+  content: "Recipe Question";
+}
+
+#types h2::before {
+  content: "Syrup Encyclopedia";
+}
+
+#compatibility h2::before {
+  content: "Pairing Menu";
+}
+
+#about h2::before {
+  content: "About This Story";
+}
+
+#result h2::before {
+  content: "Syrup Receipt";
+}
+
+
+/* ---------- シロップ図鑑：標本ラベル風 ---------- */
+
+.type-grid {
+  gap: 22px;
+}
+
+.type-card-button,
+.type-card {
+  position: relative;
+  min-height: 220px;
+  padding: 26px 22px 22px;
+  border-radius: 30px;
+  text-align: left;
+  cursor: pointer;
+  border: 1px solid rgba(190, 145, 220, 0.28);
+  background:
+    radial-gradient(circle at 85% 12%, rgba(255, 190, 225, 0.5), transparent 28%),
+    radial-gradient(circle at 12% 88%, rgba(190, 150, 255, 0.28), transparent 30%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(255, 244, 252, 0.88));
+  box-shadow: 0 14px 34px rgba(145, 90, 180, 0.12);
+  overflow: hidden;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.type-card-button::before,
+.type-card::before {
+  content: "SPECIMEN";
+  position: absolute;
+  right: -8px;
+  bottom: 10px;
+  color: rgba(93, 58, 114, 0.055);
+  font-size: 42px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  pointer-events: none;
+}
+
+.type-card-button h3,
+.type-card h3 {
+  margin-top: 18px;
+  color: #5d3a72;
+  font-size: 20px;
+  line-height: 1.45;
+}
+
+.type-card-button h3::before,
+.type-card h3::before {
+  content: "Syrup Specimen";
+  display: block;
+  margin-bottom: 8px;
+  color: #c58be0;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.type-card-button p,
+.type-card p {
+  color: #7f6090;
+}
+
+.type-card-button p strong,
+.type-card p strong {
+  display: inline-flex;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: rgba(236, 145, 198, 0.16);
+  color: #9d62bd;
+  font-size: 12px;
+}
+
+.type-card-button .tag,
+.type-card .tag {
+  background: rgba(255, 255, 255, 0.72);
+  color: #b36ac8;
+  border: 1px solid rgba(190, 145, 220, 0.22);
+}
+
+.type-card-button::after {
+  content: "READ MORE →";
+  display: inline-block;
+  margin-top: 18px;
+  color: #b779d1;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+}
+
+.type-card-button:hover,
+.type-card:hover {
+  transform: translateY(-8px) rotate(-0.5deg);
+  box-shadow: 0 24px 52px rgba(145, 90, 180, 0.2);
+}
+
+
+/* ---------- 図鑑ポップアップ：本を開く風 ---------- */
+
+.type-modal-card {
+  background:
+    linear-gradient(90deg, rgba(255,255,255,0.95) 0 49.7%, rgba(215,160,220,0.18) 49.7% 50.3%, rgba(255,250,255,0.95) 50.3%),
+    radial-gradient(circle at 90% 0%, rgba(255, 190, 225, 0.38), transparent 32%),
+    linear-gradient(145deg, #fffaff, #f7edff);
+  border: 1px solid rgba(190,145,220,0.28);
+}
+
+.modal-group {
+  box-shadow: 0 8px 18px rgba(180, 120, 210, 0.12);
+}
+
+.modal-title::before {
+  content: "Syrup Profile";
+  display: block;
+  margin-bottom: 8px;
+  color: #c58be0;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.modal-section {
+  background: rgba(255,255,255,0.42);
+  border-radius: 22px;
+  padding: 18px;
+  border: 1px solid rgba(190,145,220,0.14);
+}
+
+.modal-section h4::before {
+  content: "✦ ";
+  color: #c58be0;
+}
+
+
+/* ---------- 相性一覧：カフェメニュー表 ---------- */
+
+.compatibility-grid {
+  gap: 22px;
+}
+
+.compatibility-card {
+  position: relative;
+  min-height: 230px;
+  border-radius: 30px;
+  padding: 26px 22px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.94), rgba(255,246,252,0.9)),
+    radial-gradient(circle at 86% 12%, rgba(255,190,225,0.46), transparent 30%);
+  border: 1px solid rgba(190, 145, 220, 0.25);
+  box-shadow: 0 14px 34px rgba(145, 90, 180, 0.12);
+  overflow: hidden;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.compatibility-card::after {
+  content: "ORDER";
+  position: absolute;
+  right: -4px;
+  bottom: 10px;
+  color: rgba(93, 58, 114, 0.055);
+  font-size: 44px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.compatibility-card h3 {
+  color: #5d3a72;
+  font-size: 19px;
+  line-height: 1.45;
+}
+
+.compatibility-card h3::before {
+  content: "PAIRING MENU";
+  display: block;
+  margin-bottom: 7px;
+  color: #c58be0;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+}
+
+.compatibility-card p {
+  position: relative;
+  padding: 8px 0;
+  border-bottom: 1px dashed rgba(150, 100, 180, 0.18);
+  color: #7f6090;
+}
+
+.compatibility-card p:nth-of-type(1)::before {
+  content: "Best ";
+  color: #d67bb5;
+  font-weight: 900;
+}
+
+.compatibility-card p:nth-of-type(2)::before {
+  content: "Soft ";
+  color: #b98ae8;
+  font-weight: 900;
+}
+
+.compatibility-card p:nth-of-type(3)::before {
+  content: "Bitter ";
+  color: #9c72b7;
+  font-weight: 900;
+}
+
+.compatibility-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 52px rgba(145, 90, 180, 0.2);
+}
+
+
+/* ---------- 診断中メーター：レシピ完成度っぽく ---------- */
+
+.syrup-jar-progress::before {
+  content: "Recipe Progress";
+  display: block;
+  margin-bottom: 12px;
+  color: #b98ae8;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.jar-caption::after {
+  content: "　甘さ・香り・余韻を少しずつ調合中。";
+}
+
+
+/* ---------- 結果ページ：レシート風 ---------- */
+
+.result-card {
+  position: relative;
+  border-radius: 28px;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.95) 0px,
+      rgba(255,255,255,0.95) 28px,
+      rgba(247,237,255,0.72) 29px
+    );
+  border: 1px solid rgba(190, 145, 220, 0.28);
+  box-shadow:
+    0 22px 54px rgba(145, 90, 180, 0.17),
+    inset 0 0 0 8px rgba(255,255,255,0.45);
+}
+
+.result-card::before {
+  content: "SYRUP RECEIPT";
+  display: block;
+  margin-bottom: 18px;
+  color: #b98ae8;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.result-card::after {
+  content: "Thank you for your story.";
+  display: block;
+  margin-top: 26px;
+  color: #b98ae8;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-align: center;
+}
+
+.result-type {
+  text-align: center;
+}
+
+.result-copy {
+  text-align: center;
+  color: #b36ac8;
+}
+
+.result-badge {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.result-panel {
+  background: rgba(255,255,255,0.68);
+  border: 1px dashed rgba(150,100,180,0.22);
+}
+
+.result-panel h4::before {
+  content: "✦ ";
+  color: #c58be0;
+}
+
+
+/* ---------- スマホ調整 ---------- */
+
+@media (max-width: 700px) {
+  body::after {
+    animation-duration: 24s;
+    opacity: 0.6;
+  }
+
+  .hero::before {
+    width: 160px;
+    height: 160px;
+    left: -20px;
+    top: 16%;
+  }
+
+  .hero::after {
+    width: 130px;
+    height: 130px;
+    right: -20px;
+    bottom: 20%;
+  }
+
+  .type-grid,
+  .compatibility-grid {
+    gap: 16px;
+  }
+
+  .type-card-button,
+  .type-card,
+  .compatibility-card {
+    min-height: 180px;
+    padding: 22px 18px 20px;
+    border-radius: 26px;
+  }
+
+  .type-card-button h3,
+  .type-card h3,
+  .compatibility-card h3 {
+    font-size: 18px;
+  }
+
+  .type-card-button::before,
+  .type-card::before,
+  .compatibility-card::after {
+    font-size: 34px;
+  }
+
+  .type-modal-card {
+    background:
+      radial-gradient(circle at 90% 0%, rgba(255, 190, 225, 0.35), transparent 32%),
+      linear-gradient(145deg, #fffaff, #f7edff);
+  }
+
+  .modal-section {
+    padding: 15px;
+  }
+
+  .type-card-button:hover,
+  .type-card:hover,
+  .compatibility-card:hover,
+  .chapter-item:hover,
+  .start-btn:hover {
+    transform: none;
+  }
+}
+/* ==================================================
+   Big Cute Visual Upgrade Pack 02
+   大きくかわいく変える追加演出
+================================================== */
+
+
+/* ---------- トップに巨大な薄文字 ---------- */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+}
+
+.hero::before {
+  z-index: 0;
+}
+
+.hero::after {
+  z-index: 0;
+}
+
+.hero-inner::before {
+  content: "Syrup Atelier";
+  position: absolute;
+  left: 50%;
+  top: -70px;
+  transform: translateX(-50%);
+  z-index: -1;
+
+  white-space: nowrap;
+  color: rgba(93, 58, 114, 0.055);
+  font-size: clamp(58px, 14vw, 150px);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  line-height: 1;
+
+  animation: bigTitleFloat 7s ease-in-out infinite;
+}
+
+@keyframes bigTitleFloat {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+}
+
+
+/* ---------- トップタイトルにグラデ文字 ---------- */
+
+.hero h1 {
+  background: linear-gradient(135deg, #5d3a72, #b66fd2, #e889bd);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+
+/* ---------- 章ごとの巨大背景文字 ---------- */
+
+.section {
+  position: relative;
+  overflow: hidden;
+}
+
+.section::before {
+  position: absolute;
+  right: -10px;
+  top: 10px;
+  z-index: 0;
+  color: rgba(93, 58, 114, 0.045);
+  font-size: clamp(46px, 12vw, 120px);
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.section > * {
+  position: relative;
+  z-index: 1;
+}
+
+#quiz::before {
+  content: "RECIPE";
+}
+
+#types::before {
+  content: "SYRUP";
+}
+
+#compatibility::before {
+  content: "MENU";
+}
+
+#about::before {
+  content: "STORY";
+}
+
+#result::before {
+  content: "RESULT";
+}
+
+
+/* ---------- セクションをガラス板っぽく ---------- */
+
+.section {
+  background:
+    radial-gradient(circle at 92% 8%, rgba(255, 190, 225, 0.22), transparent 28%),
+    radial-gradient(circle at 8% 88%, rgba(190, 150, 255, 0.18), transparent 28%),
+    rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(190, 145, 220, 0.22);
+  box-shadow:
+    0 22px 60px rgba(112, 68, 150, 0.14),
+    inset 0 1px 0 rgba(255,255,255,0.85);
+}
+
+
+/* ---------- 図鑑カードにシロップ雫 ---------- */
+
+.type-card-button {
+  isolation: isolate;
+}
+
+.type-card-button h3::after,
+.type-card h3::after {
+  content: "";
+  display: block;
+  width: 34px;
+  height: 44px;
+  margin-top: 14px;
+  border-radius: 50% 50% 54% 46% / 58% 58% 42% 42%;
+  background:
+    radial-gradient(circle at 34% 24%, rgba(255,255,255,0.86), transparent 16%),
+    linear-gradient(180deg, #ff9ed0, #c26cff);
+  box-shadow:
+    inset 0 5px 12px rgba(255,255,255,0.35),
+    0 10px 20px rgba(178, 110, 210, 0.22);
+  transform: rotate(12deg);
+  animation: syrupDropFloat 3.2s ease-in-out infinite;
+}
+
+@keyframes syrupDropFloat {
+  0%, 100% {
+    transform: rotate(12deg) translateY(0);
+  }
+
+  50% {
+    transform: rotate(8deg) translateY(-6px);
+  }
+}
+
+
+/* ---------- 図鑑カードを番号付きっぽく ---------- */
+
+.type-card-button:nth-child(1)::after { content: "No.01  READ MORE →"; }
+.type-card-button:nth-child(2)::after { content: "No.02  READ MORE →"; }
+.type-card-button:nth-child(3)::after { content: "No.03  READ MORE →"; }
+.type-card-button:nth-child(4)::after { content: "No.04  READ MORE →"; }
+.type-card-button:nth-child(5)::after { content: "No.05  READ MORE →"; }
+.type-card-button:nth-child(6)::after { content: "No.06  READ MORE →"; }
+.type-card-button:nth-child(7)::after { content: "No.07  READ MORE →"; }
+.type-card-button:nth-child(8)::after { content: "No.08  READ MORE →"; }
+.type-card-button:nth-child(9)::after { content: "No.09  READ MORE →"; }
+.type-card-button:nth-child(10)::after { content: "No.10  READ MORE →"; }
+.type-card-button:nth-child(11)::after { content: "No.11  READ MORE →"; }
+.type-card-button:nth-child(12)::after { content: "No.12  READ MORE →"; }
+.type-card-button:nth-child(13)::after { content: "No.13  READ MORE →"; }
+.type-card-button:nth-child(14)::after { content: "No.14  READ MORE →"; }
+.type-card-button:nth-child(15)::after { content: "No.15  READ MORE →"; }
+.type-card-button:nth-child(16)::after { content: "No.16  READ MORE →"; }
+
+
+/* ---------- グループごとにカードの雰囲気を少し変える ---------- */
+
+.type-card-button:nth-child(4n + 1) {
+  background:
+    radial-gradient(circle at 88% 12%, rgba(255, 196, 159, 0.36), transparent 30%),
+    linear-gradient(145deg, rgba(255,255,255,0.95), rgba(255,244,238,0.9));
+}
+
+.type-card-button:nth-child(4n + 2) {
+  background:
+    radial-gradient(circle at 88% 12%, rgba(202, 174, 255, 0.36), transparent 30%),
+    linear-gradient(145deg, rgba(255,255,255,0.95), rgba(246,240,255,0.92));
+}
+
+.type-card-button:nth-child(4n + 3) {
+  background:
+    radial-gradient(circle at 88% 12%, rgba(255, 180, 218, 0.38), transparent 30%),
+    linear-gradient(145deg, rgba(255,255,255,0.95), rgba(255,243,250,0.92));
+}
+
+.type-card-button:nth-child(4n + 4) {
+  background:
+    radial-gradient(circle at 88% 12%, rgba(190, 150, 255, 0.34), transparent 30%),
+    linear-gradient(145deg, rgba(255,255,255,0.95), rgba(246,237,255,0.92));
+}
+
+
+/* ---------- 相性カード：カフェの注文票っぽく ---------- */
+
+.compatibility-card {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,249,253,0.94)),
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 30px,
+      rgba(190,145,220,0.08) 31px
+    );
+}
+
+.compatibility-card::before {
+  content: "Today's Pairing";
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(236,145,198,0.16);
+  color: #b36ac8;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.compatibility-card h3 {
+  padding-right: 92px;
+}
+
+.compatibility-card .tag {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(135deg, #ec91c6, #ad85e8);
+  color: white;
+  border: none;
+  box-shadow: 0 8px 18px rgba(175, 110, 205, 0.2);
+}
+
+
+/* ---------- 相性カードに + = の雰囲気 ---------- */
+
+.compatibility-card p:nth-of-type(1)::after {
+  content: "  +";
+  color: #c58be0;
+  font-weight: 900;
+}
+
+.compatibility-card p:nth-of-type(2)::after {
+  content: "  +";
+  color: #c58be0;
+  font-weight: 900;
+}
+
+.compatibility-card p:nth-of-type(3)::after {
+  content: "  =";
+  color: #c58be0;
+  font-weight: 900;
+}
+
+
+/* ---------- 結果カード：スクショしたくなる札っぽく ---------- */
+
+.result-card {
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.result-card::before {
+  padding: 10px 0 18px;
+  border-bottom: 1px dashed rgba(150, 100, 180, 0.25);
+}
+
+.result-hero {
+  padding: 20px 0;
+}
+
+.result-type {
+  font-size: clamp(34px, 7vw, 62px);
+  background: linear-gradient(135deg, #5d3a72, #b66fd2, #e889bd);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.result-orb {
+  position: relative;
+}
+
+.result-orb::before {
+  content: "";
+  position: absolute;
+  inset: -16px;
+  border-radius: 50%;
+  border: 1px dashed rgba(190,145,220,0.45);
+  animation: orbRing 10s linear infinite;
+}
+
+@keyframes orbRing {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* ---------- 質問カードも少しリッチに ---------- */
+
+.question-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.question-card::before {
+  content: "Question";
+  position: absolute;
+  right: 18px;
+  top: 14px;
+  color: rgba(93,58,114,0.06);
+  font-size: 34px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.answer-option {
+  position: relative;
+  overflow: hidden;
+}
+
+.answer-option::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.45), transparent);
+  transform: translateX(-120%);
+  transition: transform 0.45s ease;
+}
+
+.answer-option:hover::after {
+  transform: translateX(120%);
+}
+
+
+/* ---------- メーターにラベルを追加 ---------- */
+
+.jar-info::after {
+  content: "Base → Aroma → Aftertaste → Your Syrup";
+  display: block;
+  margin-top: 10px;
+  color: #b98ae8;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+
+/* ---------- メニューのドロップダウンを作品っぽく ---------- */
+
+.site-nav {
+  overflow: hidden;
+}
+
+.site-nav::before {
+  content: "Atelier Menu";
+  display: block;
+  margin-bottom: 10px;
+  color: #b98ae8;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.site-nav a {
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.site-nav a:hover {
+  transform: translateX(5px);
+  background: rgba(236,145,198,0.15);
+}
+
+
+/* ---------- フッターを可愛く ---------- */
+
+.footer {
+  position: relative;
+}
+
+.footer::before {
+  content: "Thank you for visiting Syrup Atelier.";
+  display: block;
+  margin-bottom: 8px;
+  color: #b98ae8;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+
+/* ---------- スマホで見やすく ---------- */
+
+@media (max-width: 700px) {
+  .hero-inner::before {
+    top: -42px;
+    font-size: 58px;
+  }
+
+  .section::before {
+    right: 4px;
+    top: 8px;
+    font-size: 46px;
+  }
+
+  .compatibility-card h3 {
+    padding-right: 0;
+    padding-top: 34px;
+  }
+
+  .compatibility-card::before {
+    left: 18px;
+    right: auto;
+  }
+
+  .question-card::before {
+    font-size: 24px;
+    right: 12px;
+    top: 10px;
+  }
+
+  .jar-info::after {
+    font-size: 9px;
+    line-height: 1.6;
+  }
+}
+/* =========================
+   Syrup Atelier Shelf
+========================= */
+
+.syrup-shelf {
+  position: relative;
+  width: min(560px, 100%);
+  margin: 34px auto 44px;
+  padding-bottom: 18px;
+}
+
+.shelf-line {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: 0;
+  height: 10px;
+  border-radius: 999px;
+  background:
+    linear-gradient(90deg, rgba(236,145,198,0.35), rgba(173,133,232,0.35));
+  box-shadow: 0 10px 22px rgba(145, 90, 180, 0.16);
+}
+
+.shelf-bottles {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 22px;
+}
+
+.shelf-bottle {
+  width: 74px;
+  text-align: center;
+  animation: shelfFloat 4s ease-in-out infinite;
+}
+
+.shelf-bottle:nth-child(2) {
+  animation-delay: -0.7s;
+}
+
+.shelf-bottle:nth-child(3) {
+  animation-delay: -1.2s;
+}
+
+.shelf-bottle:nth-child(4) {
+  animation-delay: -1.8s;
+}
+
+.shelf-bottle span {
+  display: block;
+  width: 44px;
+  height: 78px;
+  margin: 0 auto 8px;
+  border-radius: 18px 18px 14px 14px;
+  border: 2px solid rgba(115, 68, 150, 0.24);
+  background:
+    linear-gradient(to top, #ec91c6 0 58%, rgba(255,255,255,0.58) 58%),
+    linear-gradient(145deg, rgba(255,255,255,0.8), rgba(255,245,253,0.35));
+  box-shadow:
+    inset 0 4px 12px rgba(255,255,255,0.78),
+    0 10px 20px rgba(145, 90, 180, 0.14);
+  position: relative;
+  overflow: hidden;
+}
+
+.shelf-bottle span::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 10px;
+  width: 8px;
+  height: 38px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.48);
+}
+
+.shelf-bottle span::after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 18px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.26);
+}
+
+.shelf-bottle:nth-child(1) span {
+  background:
+    linear-gradient(to top, #d89a64 0 58%, rgba(255,255,255,0.58) 58%),
+    linear-gradient(145deg, rgba(255,255,255,0.8), rgba(255,245,253,0.35));
+}
+
+.shelf-bottle:nth-child(2) span {
+  background:
+    linear-gradient(to top, #b58bea 0 58%, rgba(255,255,255,0.58) 58%),
+    linear-gradient(145deg, rgba(255,255,255,0.8), rgba(255,245,253,0.35));
+}
+
+.shelf-bottle:nth-child(3) span {
+  background:
+    linear-gradient(to top, #ffa3c8 0 58%, rgba(255,255,255,0.58) 58%),
+    linear-gradient(145deg, rgba(255,255,255,0.8), rgba(255,245,253,0.35));
+}
+
+.shelf-bottle:nth-child(4) span {
+  background:
+    linear-gradient(to top, #ffe07c 0 58%, rgba(255,255,255,0.58) 58%),
+    linear-gradient(145deg, rgba(255,255,255,0.8), rgba(255,245,253,0.35));
+}
+
+.shelf-bottle p {
+  margin: 0;
+  color: #8a609c;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+@keyframes shelfFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(-1deg);
+  }
+}
+
+@media (max-width: 700px) {
+  .syrup-shelf {
+    margin: 28px auto 36px;
+  }
+
+  .shelf-bottles {
+    gap: 12px;
+  }
+
+  .shelf-bottle {
+    width: 60px;
+  }
+
+  .shelf-bottle span {
+    width: 36px;
+    height: 66px;
+  }
+
+  .shelf-bottle p {
+    font-size: 9px;
+  }
+}
+/* ==================================================
+   Syrup Shelf Type List
+   全タイプ一覧を「シロップ棚」にする
+================================================== */
+
+#types {
+  background:
+    radial-gradient(circle at 15% 10%, rgba(255, 190, 225, 0.26), transparent 30%),
+    radial-gradient(circle at 85% 88%, rgba(190, 150, 255, 0.22), transparent 32%),
+    rgba(255, 255, 255, 0.74);
+}
+
+#types h2::before {
+  content: "Shelf of Syrups";
+}
+
+#types .section-text {
+  max-width: 680px;
+}
+
+/* 棚全体 */
+.type-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 54px 22px;
+  padding: 34px 22px 44px;
+  border-radius: 34px;
+  background:
+    linear-gradient(
+      to bottom,
+      transparent 0 170px,
+      rgba(180, 125, 210, 0.20) 171px,
+      rgba(180, 125, 210, 0.20) 181px,
+      transparent 182px 352px,
+      rgba(180, 125, 210, 0.20) 353px,
+      rgba(180, 125, 210, 0.20) 363px,
+      transparent 364px 534px,
+      rgba(180, 125, 210, 0.20) 535px,
+      rgba(180, 125, 210, 0.20) 545px,
+      transparent 546px 716px,
+      rgba(180, 125, 210, 0.20) 717px,
+      rgba(180, 125, 210, 0.20) 727px
+    ),
+    radial-gradient(circle at 18% 18%, rgba(255, 200, 230, 0.24), transparent 28%),
+    linear-gradient(145deg, rgba(255,255,255,0.72), rgba(248,238,255,0.72));
+  border: 1px solid rgba(190, 145, 220, 0.22);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.88),
+    0 20px 44px rgba(112, 68, 150, 0.12);
+}
+
+/* 各タイプカードを「瓶」にする */
+.type-card-button,
+.type-card {
+  --syrup-color: #ec91c6;
+  --syrup-color-2: #ad85e8;
+  --syrup-level: 62%;
+
+  position: relative;
+  min-height: 168px;
+  padding: 118px 10px 12px;
+  border: none;
+  border-radius: 0;
+  background: transparent !important;
+  box-shadow: none !important;
+  text-align: center;
+  overflow: visible;
+  cursor: pointer;
+  transition: transform 0.28s ease;
+}
+
+/* 瓶本体 */
+.type-card-button::before,
+.type-card::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 64px;
+  height: 104px;
+  transform: translateX(-50%);
+  border-radius: 22px 22px 18px 18px;
+  border: 2px solid rgba(93, 58, 114, 0.24);
+  background:
+    linear-gradient(
+      to top,
+      var(--syrup-color) 0 var(--syrup-level),
+      rgba(255, 255, 255, 0.62) var(--syrup-level) 100%
+    );
+  box-shadow:
+    inset 0 5px 14px rgba(255,255,255,0.75),
+    inset 0 -10px 18px rgba(93, 58, 114, 0.12),
+    0 14px 24px rgba(112, 68, 150, 0.15);
+  pointer-events: none;
+  animation: bottleFloat 4.2s ease-in-out infinite;
+}
+
+/* 瓶のキャップ */
+.type-card-button::after,
+.type-card::after {
+  content: "OPEN";
+  position: absolute;
+  left: 50%;
+  top: -14px;
+  width: 44px;
+  height: 20px;
+  transform: translateX(-50%);
+  border-radius: 12px 12px 5px 5px;
+  background:
+    linear-gradient(180deg, #fffaff, #e8d7ff);
+  border: 2px solid rgba(93, 58, 114, 0.20);
+  color: transparent;
+  box-shadow:
+    inset 0 2px 0 rgba(255,255,255,0.88),
+    0 6px 12px rgba(112, 68, 150, 0.10);
+  pointer-events: none;
+}
+
+/* 瓶の光 */
+.type-card-button h3::before,
+.type-card h3::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -100px;
+  width: 10px;
+  height: 58px;
+  transform: translateX(-22px);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.48);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* 前に追加した雫を消す */
+.type-card-button h3::after,
+.type-card h3::after {
+  display: none !important;
+}
+
+/* ラベル */
+.type-card-button h3,
+.type-card h3 {
+  position: relative;
+  margin: 0;
+  color: #5d3a72;
+  font-size: 15px;
+  line-height: 1.45;
+  font-weight: 900;
+}
+
+.type-card-button p,
+.type-card p {
+  margin: 5px 0 0;
+  color: #8a609c;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.type-card-button p strong,
+.type-card p strong {
+  display: inline-flex;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.72);
+  color: #a35ac7;
+  border: 1px solid rgba(190,145,220,0.20);
+  font-size: 11px;
+}
+
+/* 詳しく見るタグ */
+.type-card-button .tags,
+.type-card .tags {
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.type-card-button .tag,
+.type-card .tag {
+  background: linear-gradient(135deg, rgba(236,145,198,0.22), rgba(173,133,232,0.22));
+  color: #8d5caf;
+  border: 1px solid rgba(190,145,220,0.24);
+  font-size: 10px;
+}
+
+/* hoverで瓶を手に取る感じ */
+.type-card-button:hover,
+.type-card:hover {
+  transform: translateY(-10px);
+}
+
+.type-card-button:hover::before,
+.type-card:hover::before {
+  box-shadow:
+    inset 0 5px 14px rgba(255,255,255,0.82),
+    inset 0 -10px 18px rgba(93, 58, 114, 0.12),
+    0 22px 36px rgba(112, 68, 150, 0.22);
+  filter: brightness(1.05);
+}
+
+/* ふわふわ差分 */
+.type-card-button:nth-child(2n)::before {
+  animation-delay: -0.7s;
+}
+
+.type-card-button:nth-child(3n)::before {
+  animation-delay: -1.3s;
+}
+
+.type-card-button:nth-child(4n)::before {
+  animation-delay: -1.9s;
+}
+
+@keyframes bottleFloat {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(-7px) rotate(-1deg);
+  }
+}
+
+/* =========================
+   タイプ別シロップカラー
+========================= */
+
+/* 余韻型 */
+.type-card-button:nth-child(1) {
+  --syrup-color: #c98a53;
+  --syrup-level: 66%;
+}
+
+.type-card-button:nth-child(2) {
+  --syrup-color: #b79adf;
+  --syrup-level: 54%;
+}
+
+.type-card-button:nth-child(3) {
+  --syrup-color: #8b5a78;
+  --syrup-level: 72%;
+}
+
+.type-card-button:nth-child(4) {
+  --syrup-color: #d8a45e;
+  --syrup-level: 78%;
+}
+
+/* 共鳴型 */
+.type-card-button:nth-child(5) {
+  --syrup-color: #f5e9ff;
+  --syrup-level: 64%;
+}
+
+.type-card-button:nth-child(5)::before {
+  background:
+    linear-gradient(
+      to top,
+      #f5e9ff 0 var(--syrup-level),
+      rgba(255, 255, 255, 0.62) var(--syrup-level) 100%
+    );
+}
+
+.type-card-button:nth-child(6) {
+  --syrup-color: #f3b75f;
+  --syrup-level: 70%;
+}
+
+.type-card-button:nth-child(7) {
+  --syrup-color: #b98a6a;
+  --syrup-level: 62%;
+}
+
+.type-card-button:nth-child(8) {
+  --syrup-color: #fff0f7;
+  --syrup-level: 60%;
+}
+
+.type-card-button:nth-child(8)::before {
+  background:
+    linear-gradient(
+      to top,
+      #fff0f7 0 var(--syrup-level),
+      rgba(255, 255, 255, 0.62) var(--syrup-level) 100%
+    );
+}
+
+/* 庇護型 */
+.type-card-button:nth-child(9) {
+  --syrup-color: #ff7fac;
+  --syrup-level: 68%;
+}
+
+.type-card-button:nth-child(10) {
+  --syrup-color: #ffdff1;
+  --syrup-level: 56%;
+}
+
+.type-card-button:nth-child(10)::before {
+  background:
+    linear-gradient(
+      to top,
+      #ffdff1 0 var(--syrup-level),
+      rgba(255, 255, 255, 0.62) var(--syrup-level) 100%
+    );
+}
+
+.type-card-button:nth-child(11) {
+  --syrup-color: #ffa8c8;
+  --syrup-level: 64%;
+}
+
+.type-card-button:nth-child(12) {
+  --syrup-color: #d6b48f;
+  --syrup-level: 70%;
+}
+
+/* 執着型 */
+.type-card-button:nth-child(13) {
+  --syrup-color: #5b3a4f;
+  --syrup-level: 78%;
+}
+
+.type-card-button:nth-child(14) {
+  --syrup-color: #c47a55;
+  --syrup-level: 74%;
+}
+
+.type-card-button:nth-child(15) {
+  --syrup-color: #a7c78a;
+  --syrup-level: 58%;
+}
+
+.type-card-button:nth-child(16) {
+  --syrup-color: #ffe16d;
+  --syrup-level: 66%;
+}
+
+/* 棚のラベル */
+.type-grid::before {
+  content: "余韻型 shelf　　共鳴型 shelf　　庇護型 shelf　　執着型 shelf";
+  position: absolute;
+  left: 22px;
+  top: 12px;
+  color: rgba(93, 58, 114, 0.36);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  pointer-events: none;
+}
+
+/* スマホ調整 */
+@media (max-width: 700px) {
+  .type-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 44px 14px;
+    padding: 34px 12px 34px;
+    background:
+      linear-gradient(
+        to bottom,
+        transparent 0 164px,
+        rgba(180, 125, 210, 0.20) 165px,
+        rgba(180, 125, 210, 0.20) 174px,
+        transparent 175px 338px,
+        rgba(180, 125, 210, 0.20) 339px,
+        rgba(180, 125, 210, 0.20) 348px,
+        transparent 349px 512px,
+        rgba(180, 125, 210, 0.20) 513px,
+        rgba(180, 125, 210, 0.20) 522px,
+        transparent 523px 686px,
+        rgba(180, 125, 210, 0.20) 687px,
+        rgba(180, 125, 210, 0.20) 696px
+      ),
+      linear-gradient(145deg, rgba(255,255,255,0.72), rgba(248,238,255,0.72));
+  }
+
+  .type-grid::before {
+    content: "Shelf of Syrups";
+    left: 14px;
+    top: 12px;
+  }
+
+  .type-card-button,
+  .type-card {
+    min-height: 158px;
+    padding: 108px 6px 10px;
+  }
+
+  .type-card-button::before,
+  .type-card::before {
+    width: 54px;
+    height: 92px;
+  }
+
+  .type-card-button::after,
+  .type-card::after {
+    width: 38px;
+    height: 18px;
+  }
+
+  .type-card-button h3,
+  .type-card h3 {
+    font-size: 13px;
+  }
+
+  .type-card-button p,
+  .type-card p {
+    font-size: 11px;
+  }
+}
+/* ==================================================
+   Syrup Shelf Fix
+   棚と瓶の形を整える修正版
+================================================== */
+
+/* 棚全体を「4段の棚」っぽくする */
+.type-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 54px 24px !important;
+
+  padding: 56px 28px 48px !important;
+  border-radius: 36px !important;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent 0 178px,
+      rgba(186, 145, 215, 0.26) 178px 188px,
+      rgba(255, 255, 255, 0.5) 188px 194px,
+      transparent 194px 378px,
+      rgba(186, 145, 215, 0.26) 378px 388px,
+      rgba(255, 255, 255, 0.5) 388px 394px,
+      transparent 394px 578px,
+      rgba(186, 145, 215, 0.26) 578px 588px,
+      rgba(255, 255, 255, 0.5) 588px 594px,
+      transparent 594px 778px,
+      rgba(186, 145, 215, 0.26) 778px 788px
+    ),
+    radial-gradient(circle at 12% 12%, rgba(255, 190, 225, 0.22), transparent 28%),
+    radial-gradient(circle at 88% 88%, rgba(190, 150, 255, 0.18), transparent 30%),
+    linear-gradient(145deg, rgba(255,255,255,0.8), rgba(248,240,255,0.78)) !important;
+
+  border: 1px solid rgba(190, 145, 220, 0.22) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.9),
+    0 20px 50px rgba(112, 68, 150, 0.12) !important;
+}
+
+/* 上の変な横文字ラベルを一旦消す */
+.type-grid::before {
+  content: "Shelf of Syrups";
+  position: absolute;
+  top: 18px;
+  left: 28px;
+  color: #b98ae8;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* カードを瓶専用の台座にする */
+.type-card-button,
+.type-card {
+  min-height: 170px !important;
+  padding: 112px 8px 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  overflow: visible !important;
+  text-align: center !important;
+}
+
+/* 前の変な瓶をリセットして、縦長の瓶にする */
+.type-card-button::before,
+.type-card::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 8px;
+
+  width: 58px;
+  height: 92px;
+
+  transform: translateX(-50%);
+  border-radius: 16px 16px 18px 18px;
+
+  border: 2px solid rgba(93, 58, 114, 0.22);
+
+  background:
+    linear-gradient(
+      to top,
+      var(--syrup-color) 0 var(--syrup-level),
+      rgba(255,255,255,0.58) var(--syrup-level) 100%
+    );
+
+  box-shadow:
+    inset 0 5px 14px rgba(255,255,255,0.74),
+    inset 0 -8px 16px rgba(93,58,114,0.12),
+    0 14px 26px rgba(112,68,150,0.16);
+
+  animation: bottleFloat 4.4s ease-in-out infinite;
+}
+
+/* キャップを瓶の上に自然につける */
+.type-card-button::after,
+.type-card::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -2px;
+
+  width: 36px;
+  height: 18px;
+
+  transform: translateX(-50%);
+  border-radius: 10px 10px 5px 5px;
+
+  background: linear-gradient(180deg, #fffaff, #e7d7ff);
+  border: 2px solid rgba(93, 58, 114, 0.18);
+
+  box-shadow:
+    inset 0 2px 0 rgba(255,255,255,0.9),
+    0 5px 12px rgba(112,68,150,0.1);
+}
+
+/* 瓶の首 */
+.type-card-button h3::before,
+.type-card h3::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -105px;
+
+  width: 34px;
+  height: 20px;
+
+  transform: translateX(-50%);
+  border-radius: 10px 10px 4px 4px;
+
+  background: rgba(255,255,255,0.42);
+  border: 2px solid rgba(93, 58, 114, 0.14);
+  z-index: 1;
+}
+
+/* 瓶のツヤ */
+.type-card-button h3::after,
+.type-card h3::after {
+  content: "";
+  display: block !important;
+  position: absolute;
+  left: 50%;
+  top: -88px;
+
+  width: 8px;
+  height: 42px;
+
+  transform: translateX(-20px);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.52);
+  z-index: 2;
+}
+
+/* 名前まわり */
+.type-card-button h3,
+.type-card h3 {
+  position: relative;
+  margin: 0 !important;
+  color: #5d3a72 !important;
+  font-size: 15px !important;
+  line-height: 1.45 !important;
+  font-weight: 900 !important;
+}
+
+.type-card-button p,
+.type-card p {
+  margin: 6px 0 0 !important;
+  color: #8a609c !important;
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+}
+
+.type-card-button p strong,
+.type-card p strong {
+  display: inline-flex !important;
+  padding: 4px 10px !important;
+  border-radius: 999px !important;
+  background: rgba(255,255,255,0.78) !important;
+  color: #9d62bd !important;
+  border: 1px solid rgba(190,145,220,0.22) !important;
+  font-size: 11px !important;
+}
+
+/* 詳しく見るボタンを小さめに */
+.type-card-button .tags,
+.type-card .tags {
+  justify-content: center !important;
+  margin-top: 8px !important;
+}
+
+.type-card-button .tag,
+.type-card .tag {
+  padding: 5px 12px !important;
+  border-radius: 999px !important;
+  background: rgba(221, 185, 238, 0.65) !important;
+  color: #6b3f86 !important;
+  font-size: 11px !important;
+  border: 1px solid rgba(190,145,220,0.24) !important;
+}
+
+/* ホバー時 */
+.type-card-button:hover,
+.type-card:hover {
+  transform: translateY(-8px) !important;
+}
+
+.type-card-button:hover::before,
+.type-card:hover::before {
+  filter: brightness(1.06);
+}
+
+/* スマホでは2列の瓶棚 */
+@media (max-width: 700px) {
+  .type-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 46px 14px !important;
+    padding: 54px 14px 42px !important;
+
+    background:
+      linear-gradient(
+        to bottom,
+        transparent 0 170px,
+        rgba(186, 145, 215, 0.26) 170px 180px,
+        rgba(255, 255, 255, 0.5) 180px 186px,
+        transparent 186px 356px,
+        rgba(186, 145, 215, 0.26) 356px 366px,
+        rgba(255, 255, 255, 0.5) 366px 372px,
+        transparent 372px 542px,
+        rgba(186, 145, 215, 0.26) 542px 552px,
+        rgba(255, 255, 255, 0.5) 552px 558px,
+        transparent 558px 728px,
+        rgba(186, 145, 215, 0.26) 728px 738px,
+        rgba(255, 255, 255, 0.5) 738px 744px
+      ),
+      linear-gradient(145deg, rgba(255,255,255,0.8), rgba(248,240,255,0.78)) !important;
+  }
+
+  .type-grid::before {
+    top: 16px;
+    left: 16px;
+  }
+
+  .type-card-button,
+  .type-card {
+    min-height: 160px !important;
+    padding-top: 106px !important;
+  }
+
+  .type-card-button::before,
+  .type-card::before {
+    width: 52px;
+    height: 86px;
+  }
+
+  .type-card-button::after,
+  .type-card::after {
+    width: 32px;
+    height: 16px;
+  }
+
+  .type-card-button h3,
+  .type-card h3 {
+    font-size: 13px !important;
+  }
+
+  .type-card-button p,
+  .type-card p {
+    font-size: 11px !important;
+  }
+}
+/* ==================================================
+   Real Syrup Shelf
+   全タイプ一覧を本物っぽいシロップ棚にする
+================================================== */
+
+#types h2::before {
+  content: "Shelf of Syrups";
+}
+
+.type-grid {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 34px !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.type-grid::before {
+  display: none !important;
+}
+
+.syrup-shelf-row {
+  position: relative;
+  padding: 28px 24px 34px;
+  border-radius: 34px;
+  background:
+    radial-gradient(circle at 10% 12%, rgba(255, 190, 225, 0.26), transparent 30%),
+    radial-gradient(circle at 90% 88%, rgba(190, 150, 255, 0.20), transparent 32%),
+    linear-gradient(145deg, rgba(255,255,255,0.82), rgba(248,240,255,0.78));
+  border: 1px solid rgba(190, 145, 220, 0.22);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.9),
+    0 18px 42px rgba(112,68,150,0.12);
+  overflow: hidden;
+}
+
+.syrup-shelf-row::after {
+  content: "";
+  position: absolute;
+  left: 28px;
+  right: 28px;
+  bottom: 30px;
+  height: 14px;
+  border-radius: 999px;
+  background:
+    linear-gradient(90deg, rgba(190,145,220,0.26), rgba(236,145,198,0.22));
+  box-shadow:
+    0 10px 22px rgba(112,68,150,0.13),
+    inset 0 2px 0 rgba(255,255,255,0.65);
+}
+
+.syrup-shelf-title {
+  position: relative;
+  z-index: 2;
+  margin: 0 0 22px;
+  color: #6b3f86;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+}
+
+.syrup-shelf-title::before {
+  content: "Syrup Shelf";
+  display: block;
+  margin-bottom: 4px;
+  color: #b98ae8;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.syrup-shelf-items {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  align-items: end;
+}
+
+.syrup-bottle-card {
+  position: relative;
+  min-height: 260px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: center;
+  color: inherit;
+}
+
+.syrup-bottle-visual {
+  position: relative;
+  height: 150px;
+  margin: 0 auto 16px;
+}
+
+.syrup-bottle-cap {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 48px;
+  height: 20px;
+  transform: translateX(-50%);
+  border-radius: 12px 12px 5px 5px;
+  background: linear-gradient(180deg, #fffaff, #e6d6ff);
+  border: 2px solid rgba(93, 58, 114, 0.2);
+  box-shadow:
+    inset 0 2px 0 rgba(255,255,255,0.9),
+    0 6px 12px rgba(112,68,150,0.12);
+  z-index: 3;
+}
+
+.syrup-bottle-glass {
+  position: absolute;
+  left: 50%;
+  top: 14px;
+  width: 76px;
+  height: 122px;
+  transform: translateX(-50%);
+  border-radius: 24px 24px 22px 22px;
+  border: 2px solid rgba(93, 58, 114, 0.24);
+  background: rgba(255,255,255,0.48);
+  box-shadow:
+    inset 0 6px 16px rgba(255,255,255,0.82),
+    inset 0 -10px 18px rgba(93,58,114,0.10),
+    0 16px 26px rgba(112,68,150,0.16);
+  overflow: hidden;
+}
+
+.syrup-bottle-liquid {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 68%;
+  background:
+    radial-gradient(circle at 32% 18%, rgba(255,255,255,0.45), transparent 15%),
+    linear-gradient(180deg, var(--syrup-light), var(--syrup-main));
+  animation: syrupWaveSoft 3.4s ease-in-out infinite;
+}
+
+.syrup-bottle-liquid::before {
+  content: "";
+  position: absolute;
+  left: -18%;
+  right: -18%;
+  top: -9px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.28);
+  animation: syrupSurface 2.8s ease-in-out infinite;
+}
+
+.syrup-bottle-shine {
+  position: absolute;
+  top: 22px;
+  left: 16px;
+  width: 10px;
+  height: 62px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.52);
+  z-index: 2;
+}
+
+.syrup-bottle-label {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 18px;
+  z-index: 3;
+  padding: 5px 4px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.74);
+  color: #6b3f86;
+  font-size: 10px;
+  font-weight: 900;
+  line-height: 1.2;
+  box-shadow: 0 4px 10px rgba(93,58,114,0.08);
+}
+
+.syrup-bottle-info {
+  position: relative;
+  z-index: 4;
+  padding: 14px 10px 12px;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.58);
+  border: 1px solid rgba(190,145,220,0.18);
+  backdrop-filter: blur(8px);
+}
+
+.syrup-bottle-group {
+  display: inline-flex;
+  margin: 0 0 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(236,145,198,0.16);
+  color: #9d62bd;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.syrup-bottle-info h4 {
+  margin: 0 0 6px;
+  color: #5d3a72;
+  font-size: 16px;
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+.syrup-bottle-info p {
+  margin: 0;
+  color: #8a609c;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.syrup-bottle-info span {
+  display: inline-flex;
+  margin-top: 10px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(236,145,198,0.22), rgba(173,133,232,0.22));
+  color: #6b3f86;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.syrup-bottle-card:hover .syrup-bottle-visual {
+  animation: bottlePickUp 0.6s ease both;
+}
+
+.syrup-bottle-card:hover .syrup-bottle-info {
+  box-shadow: 0 12px 26px rgba(112,68,150,0.14);
+}
+
+@keyframes bottlePickUp {
+  0% {
+    transform: translateY(0) rotate(0);
+  }
+
+  45% {
+    transform: translateY(-12px) rotate(-2deg);
+  }
+
+  100% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+@keyframes syrupWaveSoft {
+  0%, 100% {
+    height: 66%;
+  }
+
+  50% {
+    height: 72%;
+  }
+}
+
+@keyframes syrupSurface {
+  0%, 100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+@media (max-width: 700px) {
+  .syrup-shelf-row {
+    padding: 24px 14px 30px;
+    border-radius: 28px;
+  }
+
+  .syrup-shelf-items {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 12px;
+  }
+
+  .syrup-bottle-card {
+    min-height: 240px;
+  }
+
+  .syrup-bottle-visual {
+    height: 138px;
+  }
+
+  .syrup-bottle-glass {
+    width: 66px;
+    height: 110px;
+  }
+
+  .syrup-bottle-info {
+    padding: 12px 8px;
+  }
+
+  .syrup-bottle-info h4 {
+    font-size: 14px;
+  }
+
+  .syrup-bottle-info p {
+    font-size: 11px;
+  }
+}
+/* =========================
+   Quiz Meter Layout Fix
+   メーターが質問カードの裏に入る問題を修正
+========================= */
+
+.syrup-jar-progress {
+  position: relative !important;
+  top: auto !important;
+  z-index: 5 !important;
+  overflow: visible !important;
+
+  margin-bottom: 42px !important;
+  padding: 28px 24px 34px !important;
+}
+
+.syrup-jar-progress .jar-wrap {
+  position: relative !important;
+  z-index: 6 !important;
+}
+
+.quiz-form {
+  position: relative !important;
+  z-index: 1 !important;
+  margin-top: 0 !important;
+}
+
+.question-card {
+  position: relative !important;
+  z-index: 2 !important;
+  margin-top: 0 !important;
+}
+
+/* スマホ用 */
+@media (max-width: 700px) {
+  .syrup-jar-progress {
+    margin-bottom: 34px !important;
+    padding: 24px 16px 30px !important;
+  }
+}
+/* ==================================================
+   Syrup Atelier Lab Pack
+   診断画面を「調合台」っぽくする追加演出
+================================================== */
+
+
+/* ---------- 背景にゆっくり流れるシロップライン ---------- */
+
+body {
+  position: relative;
+}
+
+body::before {
+  background-image:
+    radial-gradient(circle, rgba(126, 72, 160, 0.08) 1px, transparent 1px),
+    linear-gradient(
+      115deg,
+      transparent 0%,
+      transparent 44%,
+      rgba(236, 145, 198, 0.08) 45%,
+      rgba(173, 133, 232, 0.07) 47%,
+      transparent 49%,
+      transparent 100%
+    );
+  background-size: 28px 28px, 360px 360px;
+  animation: syrupLineFlow 18s linear infinite;
+}
+
+@keyframes syrupLineFlow {
+  from {
+    background-position: 0 0, 0 0;
+  }
+
+  to {
+    background-position: 0 0, 360px 360px;
+  }
+}
+
+
+/* ---------- 診断エリアを「調合台」にする ---------- */
+
+#quiz {
+  position: relative;
+  background:
+    radial-gradient(circle at 16% 14%, rgba(255, 200, 230, 0.32), transparent 32%),
+    radial-gradient(circle at 86% 12%, rgba(190, 150, 255, 0.24), transparent 34%),
+    linear-gradient(145deg, rgba(255,255,255,0.84), rgba(255,246,252,0.74));
+  border: 1px solid rgba(190, 145, 220, 0.26);
+  box-shadow:
+    0 26px 70px rgba(112, 68, 150, 0.15),
+    inset 0 1px 0 rgba(255,255,255,0.92);
+}
+
+#quiz::after {
+  content: "Atelier Table";
+  position: absolute;
+  right: 26px;
+  top: 26px;
+  color: rgba(93, 58, 114, 0.055);
+  font-size: clamp(34px, 8vw, 90px);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  pointer-events: none;
+}
+
+
+/* ---------- メーターを「調合装置」っぽく ---------- */
+
+.syrup-jar-progress {
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.86), rgba(247,235,255,0.78)) !important;
+  border: 1px solid rgba(190,145,220,0.26) !important;
+  box-shadow:
+    0 20px 46px rgba(112,68,150,0.13),
+    inset 0 1px 0 rgba(255,255,255,0.9) !important;
+}
+
+.syrup-jar-progress::after {
+  content: "";
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 16px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(190,145,220,0.45), transparent);
+}
+
+.jar {
+  filter: drop-shadow(0 14px 22px rgba(112,68,150,0.16));
+}
+
+.jar-lid::after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  top: 5px;
+  height: 2px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.8);
+}
+
+
+/* ---------- 質問カードをレシピカード風に ---------- */
+
+.question-card {
+  border-radius: 32px !important;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,250,245,0.92)) !important;
+  border: 1px solid rgba(190,145,220,0.24) !important;
+  box-shadow:
+    0 20px 46px rgba(112,68,150,0.12),
+    inset 0 0 0 8px rgba(255,255,255,0.32) !important;
+}
+
+.question-card::after {
+  content: "Blend Note";
+  position: absolute;
+  left: 24px;
+  bottom: 18px;
+  color: rgba(93,58,114,0.08);
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  pointer-events: none;
+}
+
+.quiz-step-info {
+  padding-bottom: 12px;
+  border-bottom: 1px dashed rgba(150,100,180,0.22);
+}
+
+.quiz-step-pill {
+  background:
+    linear-gradient(135deg, rgba(236,145,198,0.22), rgba(173,133,232,0.20)) !important;
+  color: #8d5caf !important;
+  box-shadow: 0 8px 18px rgba(145,90,180,0.12);
+}
+
+.question-title {
+  font-size: clamp(17px, 3vw, 22px) !important;
+  line-height: 1.9 !important;
+  color: #4f3264 !important;
+}
+
+
+/* ---------- 回答選択肢を「材料チップ」っぽく ---------- */
+
+.answer-list {
+  gap: 12px !important;
+}
+
+.answer-option {
+  border-radius: 999px !important;
+  padding: 14px 18px !important;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.94), rgba(255,246,252,0.82)) !important;
+  border: 1px solid rgba(190,145,220,0.22) !important;
+  box-shadow: 0 8px 18px rgba(112,68,150,0.06);
+}
+
+.answer-option::before {
+  content: "＋";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  margin-right: 2px;
+  border-radius: 999px;
+  background: rgba(236,145,198,0.16);
+  color: #b36ac8;
+  font-weight: 900;
+  flex: 0 0 auto;
+}
+
+.answer-option:has(input:checked)::before {
+  content: "✓";
+  background: linear-gradient(135deg, #ec91c6, #ad85e8);
+  color: white;
+}
+
+.answer-option:has(input:checked) {
+  background:
+    linear-gradient(135deg, rgba(255,232,246,0.96), rgba(241,229,255,0.94)) !important;
+  border-color: rgba(173,133,232,0.45) !important;
+  box-shadow:
+    0 12px 24px rgba(145,90,180,0.14),
+    inset 0 0 0 2px rgba(255,255,255,0.68);
+}
+
+
+/* ---------- 「次の質問へ」ボタンを注文ボタンっぽく ---------- */
+
+.result-button {
+  border-radius: 999px !important;
+  background:
+    linear-gradient(135deg, #ec91c6, #b58bea, #ad85e8) !important;
+  box-shadow:
+    0 16px 36px rgba(145,90,180,0.24),
+    inset 0 1px 0 rgba(255,255,255,0.45) !important;
+}
+
+.result-button::after {
+  letter-spacing: 0.08em;
+}
+
+
+/* ---------- 図鑑棚にライト照明を追加 ---------- */
+
+.syrup-shelf-row {
+  isolation: isolate;
+}
+
+.syrup-shelf-row::before {
+  content: "";
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: -70px;
+  height: 150px;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse at center, rgba(255,255,255,0.72), transparent 68%);
+  pointer-events: none;
+}
+
+.syrup-shelf-items,
+.syrup-shelf-title {
+  position: relative;
+  z-index: 2;
+}
+
+.syrup-bottle-glass::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      120deg,
+      transparent 0%,
+      rgba(255,255,255,0.24) 34%,
+      transparent 54%
+    );
+  transform: translateX(-120%);
+  animation: bottleGlossMove 4.6s ease-in-out infinite;
+}
+
+@keyframes bottleGlossMove {
+  0%, 45% {
+    transform: translateX(-120%);
+  }
+
+  75%, 100% {
+    transform: translateX(120%);
+  }
+}
+
+
+/* ---------- スマホ調整 ---------- */
+
+@media (max-width: 700px) {
+  #quiz::after {
+    font-size: 42px;
+    right: 12px;
+    top: 18px;
+  }
+
+  .question-card::after {
+    font-size: 16px;
+    left: 18px;
+    bottom: 14px;
+  }
+
+  .answer-option {
+    border-radius: 22px !important;
+    align-items: flex-start !important;
+  }
+
+  .answer-option::before {
+    margin-top: 2px;
+  }
+}
+/* ==================================================
+   Result Page: Finished Bottle Label
+   結果ページを完成したシロップ瓶ラベル風に
+================================================== */
+
+.result-section {
+  background:
+    radial-gradient(circle at 14% 12%, rgba(255, 190, 225, 0.32), transparent 30%),
+    radial-gradient(circle at 86% 18%, rgba(190, 150, 255, 0.24), transparent 32%),
+    linear-gradient(145deg, rgba(255,255,255,0.82), rgba(248,238,255,0.78)) !important;
+}
+
+.result-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 40px !important;
+  padding: clamp(28px, 5vw, 56px) !important;
+
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255,255,255,0.92), transparent 30%),
+    linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,246,252,0.92)) !important;
+
+  border: 1px solid rgba(190, 145, 220, 0.32) !important;
+
+  box-shadow:
+    0 28px 80px rgba(112, 68, 150, 0.20),
+    inset 0 0 0 10px rgba(255,255,255,0.42) !important;
+}
+
+.result-card::before {
+  content: "BLENDED FOR YOU";
+  display: block;
+  width: fit-content;
+  margin: 0 auto 22px;
+  padding: 8px 18px;
+
+  border-radius: 999px;
+  background: rgba(236,145,198,0.16);
+  color: #b36ac8;
+
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.26em;
+  text-align: center;
+}
+
+.result-card::after {
+  content: "Thank you for visiting Syrup Atelier.";
+  display: block;
+  margin-top: 30px;
+  padding-top: 18px;
+
+  border-top: 1px dashed rgba(150,100,180,0.24);
+  color: #b98ae8;
+
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-align: center;
+}
+
+.result-hero {
+  position: relative;
+  padding: 24px;
+  border-radius: 34px;
+
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.72), rgba(255,242,250,0.62));
+  border: 1px solid rgba(190,145,220,0.18);
+}
+
+/* 結果ページ内の完成瓶 */
+.result-hero::after {
+  content: "";
+  display: block;
+  width: 96px;
+  height: 150px;
+  margin: 26px auto 0;
+
+  border-radius: 28px 28px 26px 26px;
+  border: 2px solid rgba(93, 58, 114, 0.22);
+
+  background:
+    radial-gradient(circle at 32% 18%, rgba(255,255,255,0.5), transparent 15%),
+    linear-gradient(to top, #d778ff 0 74%, rgba(255,255,255,0.62) 74% 100%);
+
+  box-shadow:
+    inset 0 6px 16px rgba(255,255,255,0.8),
+    inset 0 -12px 20px rgba(93,58,114,0.12),
+    0 18px 36px rgba(112,68,150,0.18);
+
+  animation: completedBottleFloat 4s ease-in-out infinite;
+}
+
+@keyframes completedBottleFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(1.5deg);
+  }
+}
+
+.result-badge {
+  display: block !important;
+  width: fit-content;
+  margin: 0 auto 14px !important;
+  padding: 7px 16px !important;
+  border-radius: 999px !important;
+
+  background: rgba(236,145,198,0.18) !important;
+  color: #9d62bd !important;
+
+  font-weight: 900 !important;
+  letter-spacing: 0.08em;
+}
+
+.result-type {
+  text-align: center;
+  font-size: clamp(34px, 7vw, 64px) !important;
+  line-height: 1.22 !important;
+
+  background: linear-gradient(135deg, #5d3a72, #b66fd2, #e889bd);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+}
+
+.result-copy,
+.result-main-text {
+  text-align: center;
+}
+
+.result-copy {
+  color: #b36ac8 !important;
+  font-weight: 900 !important;
+}
+
+.result-main-text {
+  color: #6d4f7a !important;
+  line-height: 2 !important;
+}
+
+.score-grid {
+  margin-top: 34px !important;
+}
+
+.score-box {
+  border-radius: 24px !important;
+  background: rgba(255,255,255,0.72) !important;
+  border: 1px solid rgba(190,145,220,0.18) !important;
+}
+
+.result-panel {
+  border-radius: 26px !important;
+  background: rgba(255,255,255,0.70) !important;
+  border: 1px dashed rgba(150,100,180,0.24) !important;
+}
+
+.result-panel h4::before {
+  content: "✦ ";
+  color: #c58be0;
+}
+/* ==================================================
+   Type Modal: Big Bottle Popup
+   図鑑詳細を「瓶を手に取る」風に
+================================================== */
+
+.type-modal-card {
+  position: relative !important;
+  overflow: hidden !important;
+
+  padding-top: 260px !important;
+  border-radius: 42px !important;
+
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255,255,255,0.92), transparent 26%),
+    radial-gradient(circle at 92% 8%, rgba(255,190,225,0.38), transparent 32%),
+    linear-gradient(145deg, #fffaff, #f5eaff) !important;
+
+  border: 1px solid rgba(190,145,220,0.30) !important;
+
+  box-shadow:
+    0 30px 90px rgba(76, 42, 110, 0.30),
+    inset 0 0 0 10px rgba(255,255,255,0.36) !important;
+}
+
+/* 大きい瓶本体 */
+.type-modal-card::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 70px;
+
+  width: 112px;
+  height: 164px;
+
+  transform: translateX(-50%);
+  border-radius: 32px 32px 30px 30px;
+
+  border: 2px solid rgba(93,58,114,0.24);
+
+  background:
+    radial-gradient(circle at 32% 18%, rgba(255,255,255,0.52), transparent 15%),
+    linear-gradient(
+      to top,
+      var(--modal-syrup-main, #d778ff) 0 72%,
+      rgba(255,255,255,0.62) 72% 100%
+    );
+
+  box-shadow:
+    inset 0 8px 18px rgba(255,255,255,0.82),
+    inset 0 -14px 26px rgba(93,58,114,0.14),
+    0 22px 42px rgba(112,68,150,0.22);
+
+  animation: modalBottleFloat 4s ease-in-out infinite;
+}
+
+/* キャップ */
+.type-modal-card::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50px;
+
+  width: 66px;
+  height: 26px;
+
+  transform: translateX(-50%);
+  border-radius: 16px 16px 7px 7px;
+
+  background: linear-gradient(180deg, #fffaff, #e8d7ff);
+  border: 2px solid rgba(93,58,114,0.20);
+
+  box-shadow:
+    inset 0 2px 0 rgba(255,255,255,0.92),
+    0 8px 18px rgba(112,68,150,0.12);
+}
+
+@keyframes modalBottleFloat {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0) rotate(0);
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(-8px) rotate(1deg);
+  }
+}
+
+/* ポップアップ内タイトルをラベルっぽく */
+.modal-group {
+  display: block !important;
+  width: fit-content;
+  margin: 0 auto 12px !important;
+  padding: 7px 16px !important;
+
+  border-radius: 999px !important;
+  background: rgba(236,145,198,0.18) !important;
+  color: #9d62bd !important;
+
+  font-weight: 900 !important;
+  letter-spacing: 0.08em;
+}
+
+.modal-title {
+  text-align: center !important;
+  font-size: clamp(32px, 7vw, 54px) !important;
+  line-height: 1.25 !important;
+
+  background: linear-gradient(135deg, #5d3a72, #b66fd2, #e889bd);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+}
+
+.modal-title::before {
+  content: "Syrup Bottle Profile";
+  display: block;
+  margin-bottom: 8px;
+
+  color: #c58be0;
+  -webkit-text-fill-color: #c58be0;
+
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.modal-catch {
+  text-align: center !important;
+  color: #b36ac8 !important;
+  font-weight: 900 !important;
+}
+
+.modal-manual {
+  line-height: 2 !important;
+  color: #654276 !important;
+}
+
+.modal-section {
+  margin-top: 24px !important;
+  padding: 20px !important;
+  border-radius: 26px !important;
+
+  background: rgba(255,255,255,0.62) !important;
+  border: 1px solid rgba(190,145,220,0.18) !important;
+
+  box-shadow: 0 12px 26px rgba(112,68,150,0.08);
+}
+
+.modal-section h4 {
+  color: #6b3f86 !important;
+}
+
+.modal-section h4::before {
+  content: "✦ ";
+  color: #c58be0;
+}
+
+/* 閉じるボタンを瓶の栓みたいに */
+.type-modal-close {
+  position: fixed !important;
+  top: 18px !important;
+  right: 18px !important;
+
+  z-index: 100000 !important;
+
+  width: 46px !important;
+  height: 46px !important;
+
+  border-radius: 999px !important;
+  border: 1px solid rgba(190,145,220,0.28) !important;
+
+  background: rgba(255,255,255,0.96) !important;
+  color: #6b3f86 !important;
+
+  font-size: 28px !important;
+  line-height: 1 !important;
+
+  box-shadow: 0 12px 26px rgba(112,68,150,0.22) !important;
+}
+
+@media (max-width: 700px) {
+  .type-modal-card {
+    padding-top: 230px !important;
+    border-radius: 30px !important;
+  }
+
+  .type-modal-card::before {
+    top: 66px;
+    width: 96px;
+    height: 146px;
+  }
+
+  .type-modal-card::after {
+    top: 48px;
+    width: 58px;
+    height: 24px;
+  }
+}
+/* ==================================================
+   Pairing Menu Receipt
+   相性一覧をカフェ注文レシート風に
+================================================== */
+
+#compatibility {
+  background:
+    radial-gradient(circle at 12% 10%, rgba(255, 190, 225, 0.24), transparent 32%),
+    radial-gradient(circle at 88% 90%, rgba(190, 150, 255, 0.20), transparent 32%),
+    rgba(255,255,255,0.74) !important;
+}
+
+#compatibility h2::before {
+  content: "Atelier Pairing Menu";
+}
+
+.compatibility-grid {
+  gap: 24px !important;
+}
+
+.compatibility-card {
+  position: relative !important;
+  min-height: 260px !important;
+  padding: 34px 24px 28px !important;
+
+  border-radius: 26px !important;
+
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.96) 0px,
+      rgba(255,255,255,0.96) 30px,
+      rgba(247,237,255,0.72) 31px
+    ) !important;
+
+  border: 1px solid rgba(190,145,220,0.26) !important;
+
+  box-shadow:
+    0 18px 44px rgba(112,68,150,0.14),
+    inset 0 0 0 7px rgba(255,255,255,0.42) !important;
+
+  overflow: hidden !important;
+}
+
+.compatibility-card::before {
+  content: "ORDER RECEIPT";
+  display: block;
+  width: fit-content;
+  margin-bottom: 14px;
+  padding: 6px 12px;
+
+  border-radius: 999px;
+  background: rgba(236,145,198,0.18);
+
+  color: #b36ac8;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.20em;
+}
+
+.compatibility-card::after {
+  content: "Thank you";
+  position: absolute;
+  right: -8px;
+  bottom: 8px;
+
+  color: rgba(93,58,114,0.055);
+  font-size: 42px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.compatibility-card h3 {
+  margin-bottom: 16px !important;
+  color: #5d3a72 !important;
+  font-size: 20px !important;
+  line-height: 1.45 !important;
+}
+
+.compatibility-card h3::before {
+  content: "Today's Blend";
+  display: block;
+  margin-bottom: 8px;
+
+  color: #c58be0;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.compatibility-card p {
+  padding: 9px 0 !important;
+  border-bottom: 1px dashed rgba(150,100,180,0.22) !important;
+  color: #7f6090 !important;
+  font-weight: 700;
+}
+
+.compatibility-card p:nth-of-type(1)::before {
+  content: "Best Pairing　";
+  color: #d67bb5;
+  font-weight: 900;
+}
+
+.compatibility-card p:nth-of-type(2)::before {
+  content: "Soft Pairing　";
+  color: #b98ae8;
+  font-weight: 900;
+}
+
+.compatibility-card p:nth-of-type(3)::before {
+  content: "Bitter Pairing　";
+  color: #9c72b7;
+  font-weight: 900;
+}
+
+.compatibility-card .tag {
+  background: linear-gradient(135deg, #ec91c6, #ad85e8) !important;
+  color: white !important;
+  border: none !important;
+  box-shadow: 0 8px 18px rgba(175,110,205,0.20);
+}
+
+.compatibility-card:hover {
+  transform: translateY(-8px) rotate(-0.4deg) !important;
+}
+/* ==================================================
+   Answer Pop Animation
+   回答時のぽんっとした感触
+================================================== */
+
+.answer-option {
+  transform-origin: center;
+}
+
+.answer-option:has(input:checked) {
+  animation: answerPop 0.34s ease both;
+}
+
+@keyframes answerPop {
+  0% {
+    transform: scale(1);
+  }
+
+  45% {
+    transform: scale(1.025);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.answer-option span {
+  position: relative;
+  z-index: 2;
+}
+
+.answer-option input {
+  position: relative;
+  z-index: 2;
+}
+/* ==================================================
+   Real Final Result Bottle Design
+   結果ページを本物の完成瓶カードにする
+================================================== */
+
+.result-card {
+  --result-syrup-main: #d778ff;
+  --result-syrup-light: #f0c8ff;
+
+  position: relative !important;
+  overflow: hidden !important;
+
+  padding: clamp(26px, 5vw, 54px) !important;
+  border-radius: 42px !important;
+
+  background:
+    radial-gradient(circle at 12% 10%, rgba(255, 190, 225, 0.34), transparent 30%),
+    radial-gradient(circle at 92% 12%, rgba(190, 150, 255, 0.28), transparent 34%),
+    linear-gradient(145deg, rgba(255,255,255,0.96), rgba(248,238,255,0.9)) !important;
+
+  border: 1px solid rgba(190,145,220,0.28) !important;
+
+  box-shadow:
+    0 28px 80px rgba(112,68,150,0.20),
+    inset 0 0 0 10px rgba(255,255,255,0.38) !important;
+}
+
+.result-card::before {
+  content: "Syrup Result Card";
+  position: absolute;
+  top: 24px;
+  left: 28px;
+
+  color: rgba(93,58,114,0.10);
+  font-size: clamp(36px, 8vw, 92px);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.result-card::after {
+  content: "Thank you for your story.";
+  display: block;
+  margin-top: 34px;
+  padding-top: 20px;
+
+  border-top: 1px dashed rgba(150,100,180,0.24);
+  color: #b98ae8;
+
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-align: center;
+}
+
+/* 上部レイアウト */
+.final-result-layout {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: 0.9fr 1.25fr;
+  gap: clamp(24px, 5vw, 54px);
+  align-items: center;
+}
+
+/* 左：完成瓶エリア */
+.final-bottle-area {
+  text-align: center;
+  padding: 28px 18px;
+
+  border-radius: 34px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255,255,255,0.9), transparent 38%),
+    linear-gradient(145deg, rgba(255,255,255,0.62), rgba(255,244,252,0.54));
+
+  border: 1px solid rgba(190,145,220,0.18);
+}
+
+.final-label-top {
+  display: inline-flex;
+  margin: 0 0 24px;
+  padding: 7px 16px;
+
+  border-radius: 999px;
+  background: rgba(236,145,198,0.18);
+  color: #9d62bd;
+
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+}
+
+/* 瓶全体 */
+.final-bottle {
+  position: relative;
+  width: 170px;
+  height: 260px;
+  margin: 0 auto 22px;
+
+  animation: finalBottleFloat 4.4s ease-in-out infinite;
+}
+
+/* キャップ */
+.final-bottle-cap {
+  position: absolute;
+  left: 50%;
+  top: 0;
+
+  width: 88px;
+  height: 34px;
+
+  transform: translateX(-50%);
+  border-radius: 20px 20px 8px 8px;
+
+  background:
+    linear-gradient(180deg, #fffaff, #e7d7ff);
+
+  border: 2px solid rgba(93,58,114,0.22);
+
+  box-shadow:
+    inset 0 3px 0 rgba(255,255,255,0.92),
+    0 8px 18px rgba(112,68,150,0.13);
+
+  z-index: 3;
+}
+
+/* 瓶ガラス */
+.final-bottle-glass {
+  position: absolute;
+  left: 50%;
+  top: 26px;
+
+  width: 138px;
+  height: 218px;
+
+  transform: translateX(-50%);
+  border-radius: 42px 42px 38px 38px;
+
+  border: 2px solid rgba(93,58,114,0.25);
+
+  background: rgba(255,255,255,0.42);
+
+  box-shadow:
+    inset 0 8px 22px rgba(255,255,255,0.86),
+    inset 0 -14px 24px rgba(93,58,114,0.12),
+    0 24px 46px rgba(112,68,150,0.22);
+
+  overflow: hidden;
+}
+
+/* 液体 */
+.final-bottle-liquid {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 74%;
+
+  background:
+    radial-gradient(circle at 30% 16%, rgba(255,255,255,0.50), transparent 16%),
+    linear-gradient(180deg, var(--result-syrup-light), var(--result-syrup-main));
+
+  animation: finalLiquidMove 3.6s ease-in-out infinite;
+}
+
+.final-bottle-liquid::before {
+  content: "";
+  position: absolute;
+  left: -18%;
+  right: -18%;
+  top: -12px;
+
+  height: 24px;
+  border-radius: 50%;
+
+  background: rgba(255,255,255,0.30);
+  animation: finalWaveMove 3s ease-in-out infinite;
+}
+
+/* ツヤ */
+.final-bottle-shine {
+  position: absolute;
+  top: 34px;
+  left: 24px;
+
+  width: 14px;
+  height: 96px;
+
+  border-radius: 999px;
+  background: rgba(255,255,255,0.52);
+  z-index: 3;
+}
+
+/* 瓶ラベル */
+.final-bottle-label {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 34px;
+
+  z-index: 4;
+
+  padding: 12px 8px;
+  border-radius: 22px;
+
+  background: rgba(255,255,255,0.78);
+  border: 1px solid rgba(190,145,220,0.24);
+
+  box-shadow: 0 8px 18px rgba(93,58,114,0.10);
+  backdrop-filter: blur(6px);
+}
+
+.final-bottle-label span {
+  display: block;
+  color: #b36ac8;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+}
+
+.final-bottle-label strong {
+  display: block;
+  color: #5d3a72;
+  font-size: 18px;
+  line-height: 1.25;
+  margin: 4px 0;
+}
+
+.final-bottle-label small {
+  color: #9d62bd;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+}
+
+.final-bottle-note {
+  max-width: 260px;
+  margin: 0 auto;
+  color: #80638d;
+  font-size: 13px;
+  line-height: 1.9;
+  font-weight: 700;
+}
+
+@keyframes finalBottleFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(1.5deg);
+  }
+}
+
+@keyframes finalLiquidMove {
+  0%, 100% {
+    height: 72%;
+  }
+
+  50% {
+    height: 78%;
+  }
+}
+
+@keyframes finalWaveMove {
+  0%, 100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(12px);
+  }
+}
+
+/* 右：結果プロフィール */
+.final-profile-area {
+  text-align: left;
+}
+
+.final-profile-area .result-badge {
+  display: inline-flex !important;
+  margin: 0 0 14px !important;
+}
+
+.final-profile-area .result-type {
+  text-align: left !important;
+  font-size: clamp(34px, 6vw, 62px) !important;
+  line-height: 1.22 !important;
+
+  background: linear-gradient(135deg, #5d3a72, #a95fd0, #e889bd);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+}
+
+.final-profile-area .result-copy {
+  text-align: left !important;
+  color: #b36ac8 !important;
+  font-size: 18px !important;
+  font-weight: 900 !important;
+}
+
+.final-profile-area .result-main-text {
+  text-align: left !important;
+  color: #6d4f7a !important;
+  line-height: 2 !important;
+  font-weight: 700;
+}
+
+/* スコア */
+.final-profile-area .score-grid {
+  grid-template-columns: repeat(2, 1fr) !important;
+  margin-top: 26px !important;
+}
+
+.score-box {
+  border-radius: 24px !important;
+  background: rgba(255,255,255,0.72) !important;
+  border: 1px solid rgba(190,145,220,0.18) !important;
+}
+
+/* 下部詳細 */
+.result-detail-grid {
+  position: relative;
+  z-index: 2;
+  margin-top: 34px !important;
+}
+
+.result-panel {
+  border-radius: 26px !important;
+  background: rgba(255,255,255,0.72) !important;
+  border: 1px dashed rgba(150,100,180,0.24) !important;
+  box-shadow: 0 12px 26px rgba(112,68,150,0.08);
+}
+
+.result-panel h4::before {
+  content: "✦ ";
+  color: #c58be0;
+}
+
+/* 相性 */
+.result-pairing-list {
+  display: grid;
+  gap: 8px;
+}
+
+.result-pairing-list p {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 16px;
+
+  background: rgba(255,244,252,0.76);
+  border: 1px solid rgba(190,145,220,0.16);
+
+  color: #654276;
+  font-weight: 700;
+}
+
+.result-pairing-list span {
+  display: inline-flex;
+  min-width: 58px;
+  margin-right: 8px;
+
+  color: #b36ac8;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+}
+
+/* スマホ */
+@media (max-width: 760px) {
+  .final-result-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .final-profile-area,
+  .final-profile-area .result-type,
+  .final-profile-area .result-copy,
+  .final-profile-area .result-main-text {
+    text-align: center !important;
+  }
+
+  .final-profile-area .result-badge {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .final-profile-area .score-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .final-bottle {
+    width: 145px;
+    height: 230px;
+  }
+
+  .final-bottle-glass {
+    width: 118px;
+    height: 192px;
+  }
+
+  .final-bottle-label strong {
+    font-size: 15px;
+  }
+}
+/* =========================
+   Type Modal Scroll Fix
+   図鑑ポップアップの中をスクロールできるようにする
+========================= */
+
+.type-modal {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 99999 !important;
+
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+
+  padding: 72px 16px 28px !important;
+  overflow-y: auto !important;
+}
+
+.type-modal.hidden {
+  display: none !important;
+}
+
+.type-modal-bg {
+  position: fixed !important;
+  inset: 0 !important;
+}
+
+.type-modal-card {
+  position: relative !important;
+  width: min(760px, 100%) !important;
+
+  max-height: calc(100vh - 110px) !important;
+  overflow-y: auto !important;
+  overscroll-behavior: contain;
+
+  margin: 0 auto !important;
+  padding-bottom: 40px !important;
+
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ×ボタンは画面右上に固定して、スクロールしても押せるように */
+.type-modal-close {
+  position: fixed !important;
+  top: 18px !important;
+  right: 18px !important;
+  z-index: 100000 !important;
+  pointer-events: auto !important;
+}
+
+/* スマホ用 */
+@media (max-width: 700px) {
+  .type-modal {
+    padding: 68px 12px 24px !important;
+  }
+
+  .type-modal-card {
+    width: 100% !important;
+    max-height: calc(100vh - 96px) !important;
+    overflow-y: auto !important;
+    padding-bottom: 48px !important;
+  }
+}
+/* ==================================================
+   Atelier Sparkle Dust
+   工房にきらめきの粉を漂わせる
+================================================== */
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+
+  background-image:
+    radial-gradient(circle, rgba(255, 180, 220, 0.55) 0 2px, transparent 3px),
+    radial-gradient(circle, rgba(190, 150, 255, 0.42) 0 2px, transparent 3px),
+    radial-gradient(circle, rgba(255, 240, 255, 0.75) 0 1px, transparent 2px);
+
+  background-size:
+    180px 180px,
+    260px 260px,
+    120px 120px;
+
+  background-position:
+    0 0,
+    80px 40px,
+    30px 90px;
+
+  animation: sparkleDrift 22s linear infinite;
+  opacity: 0.72;
+}
+
+@keyframes sparkleDrift {
+  from {
+    background-position:
+      0 0,
+      80px 40px,
+      30px 90px;
+  }
+
+  to {
+    background-position:
+      180px -180px,
+      -180px 260px,
+      120px -120px;
+  }
+}
+/* ==================================================
+   Hero Entrance Plate
+   トップを工房の入口プレート風に
+================================================== */
+
+.hero-inner {
+  position: relative;
+  padding: clamp(34px, 6vw, 64px) clamp(20px, 5vw, 56px);
+  border-radius: 44px;
+
+  background:
+    radial-gradient(circle at 12% 14%, rgba(255, 190, 225, 0.28), transparent 28%),
+    radial-gradient(circle at 90% 18%, rgba(190, 150, 255, 0.22), transparent 30%),
+    rgba(255, 255, 255, 0.44);
+
+  border: 1px solid rgba(190, 145, 220, 0.24);
+
+  box-shadow:
+    0 26px 70px rgba(112, 68, 150, 0.12),
+    inset 0 1px 0 rgba(255,255,255,0.8);
+
+  backdrop-filter: blur(10px);
+}
+
+.hero-inner::after {
+  content: "";
+  position: absolute;
+  inset: 16px;
+  border-radius: 34px;
+  border: 1px dashed rgba(180, 130, 210, 0.34);
+  pointer-events: none;
+}
+
+.hero-label {
+  display: inline-flex;
+  padding: 7px 16px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.66);
+  border: 1px solid rgba(190,145,220,0.22);
+  box-shadow: 0 8px 20px rgba(112,68,150,0.08);
+}
+
+.hero h1 {
+  text-shadow: 0 8px 28px rgba(145, 90, 180, 0.10);
+}
+
+.hero-story {
+  background: rgba(255,255,255,0.44);
+  border: 1px solid rgba(190,145,220,0.14);
+  border-radius: 28px;
+  padding: 22px 20px;
+}
+/* ==================================================
+   Atelier Chapter Tags
+   Chapterを工房の案内札風に
+================================================== */
+
+.chapter-menu {
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+  border-radius: 30px;
+  background: rgba(255,255,255,0.42);
+  border: 1px solid rgba(190,145,220,0.18);
+}
+
+.chapter-item {
+  border-radius: 22px;
+  padding: 18px 20px;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.82), rgba(255,244,252,0.68));
+  border: 1px solid rgba(190,145,220,0.18);
+  box-shadow: 0 10px 24px rgba(112,68,150,0.07);
+}
+
+.chapter-item::before {
+  content: "";
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  transform: translateY(-50%);
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ec91c6, #ad85e8);
+  box-shadow: 0 0 0 6px rgba(236,145,198,0.12);
+}
+
+.chapter-number {
+  margin-left: 18px;
+}
+
+.chapter-name {
+  display: block;
+}
+
+.chapter-item:hover {
+  transform: translateY(-4px) rotate(-0.3deg);
+  box-shadow: 0 18px 36px rgba(112,68,150,0.13);
+}
+/* ==================================================
+   Recipe Paper Question
+   診断カードをレシピ用紙風に
+================================================== */
+
+.question-card {
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.97) 0px,
+      rgba(255,255,255,0.97) 34px,
+      rgba(247,237,255,0.55) 35px
+    ) !important;
+
+  border-radius: 30px !important;
+  border: 1px solid rgba(190,145,220,0.24) !important;
+
+  box-shadow:
+    0 20px 50px rgba(112,68,150,0.13),
+    inset 0 0 0 8px rgba(255,255,255,0.38) !important;
+}
+
+.question-card::after {
+  content: "Recipe Step";
+  position: absolute;
+  right: 24px;
+  bottom: 20px;
+  color: rgba(93,58,114,0.08);
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.quiz-step-info {
+  border-bottom: 1px dashed rgba(150,100,180,0.22);
+}
+
+.answer-option {
+  background: rgba(255,255,255,0.78) !important;
+  border: 1px solid rgba(190,145,220,0.20) !important;
+  box-shadow: 0 8px 18px rgba(112,68,150,0.05);
+}
+
+.answer-option:hover {
+  transform: translateX(5px) scale(1.01);
+}
+
+.answer-option:has(input:checked) {
+  background:
+    linear-gradient(135deg, rgba(255,230,246,0.94), rgba(238,226,255,0.9)) !important;
+}
+/* ==================================================
+   Syrup Meter Machine
+   メーターを調合器具風にする
+================================================== */
+
+.syrup-jar-progress {
+  position: relative;
+  border-radius: 36px !important;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(255,255,255,0.90), transparent 32%),
+    linear-gradient(145deg, rgba(255,255,255,0.82), rgba(242,228,255,0.76)) !important;
+}
+
+.syrup-jar-progress::before {
+  content: "Recipe Progress";
+  display: block;
+  margin-bottom: 14px;
+  color: #b98ae8;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+.syrup-jar-progress::after {
+  content: "";
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  bottom: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background:
+    linear-gradient(90deg, transparent, rgba(190,145,220,0.42), transparent);
+}
+
+.jar {
+  transform-origin: center bottom;
+}
+
+.syrup-jar-progress.bump .jar {
+  animation: jarMachinePop 0.42s ease;
+}
+
+@keyframes jarMachinePop {
+  0% {
+    transform: scale(1) rotate(0);
+  }
+
+  38% {
+    transform: scale(1.07) rotate(-2deg);
+  }
+
+  100% {
+    transform: scale(1) rotate(0);
+  }
+}
+
+.jar-info {
+  padding: 14px 16px;
+  border-radius: 24px;
+  background: rgba(255,255,255,0.46);
+  border: 1px solid rgba(190,145,220,0.16);
+}
+/* ==================================================
+   Pairing Chalkboard Menu
+   食べ合わせを本日のおすすめボード風に
+================================================== */
+
+#compatibility {
+  background:
+    radial-gradient(circle at 12% 10%, rgba(255,190,225,0.25), transparent 32%),
+    radial-gradient(circle at 88% 90%, rgba(190,150,255,0.20), transparent 32%),
+    rgba(255,255,255,0.74) !important;
+}
+
+.compatibility-card {
+  position: relative;
+  border-radius: 30px !important;
+
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.92), rgba(251,244,255,0.86)) !important;
+
+  border: 1px solid rgba(190,145,220,0.25) !important;
+
+  box-shadow:
+    0 18px 42px rgba(112,68,150,0.13),
+    inset 0 0 0 7px rgba(255,255,255,0.35) !important;
+}
+
+.compatibility-card::before {
+  content: "TODAY'S BLEND";
+  display: inline-flex;
+  margin-bottom: 12px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(236,145,198,0.17);
+  color: #b36ac8;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+}
+
+.compatibility-card h3 {
+  font-size: 21px !important;
+  color: #5d3a72 !important;
+}
+
+.compatibility-card p {
+  padding: 9px 0 !important;
+  border-bottom: 1px dashed rgba(150,100,180,0.22) !important;
+}
+
+.compatibility-card .tag {
+  background: linear-gradient(135deg, #ec91c6, #ad85e8) !important;
+  color: white !important;
+  border: none !important;
+}
+/* ==================================================
+   Atelier Footer
+   フッターを工房の閉店メッセージ風に
+================================================== */
+
+.footer {
+  margin-top: 80px;
+  padding: 52px 20px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255,190,225,0.22), transparent 34%),
+    linear-gradient(180deg, transparent, rgba(255,244,252,0.86));
+}
+
+.footer::before {
+  content: "Syrup Atelier closes softly.";
+  display: block;
+  margin-bottom: 10px;
+  color: #b98ae8;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.footer p {
+  color: #80638d;
+  font-weight: 700;
+}
+/* ==================================================
+   Blend Lab Visual Meter
+   回答ごとに変化する4つの調合フラスコ
+================================================== */
+
+.blend-lab {
+  position: relative;
+  margin: 0 0 34px;
+  padding: 24px 22px 26px;
+  border-radius: 32px;
+
+  background:
+    radial-gradient(circle at 16% 10%, rgba(255,255,255,0.88), transparent 30%),
+    radial-gradient(circle at 88% 14%, rgba(255,190,225,0.24), transparent 32%),
+    linear-gradient(145deg, rgba(255,255,255,0.78), rgba(247,235,255,0.72));
+
+  border: 1px solid rgba(190,145,220,0.24);
+
+  box-shadow:
+    0 18px 44px rgba(112,68,150,0.12),
+    inset 0 1px 0 rgba(255,255,255,0.9);
+}
+
+.blend-lab-title {
+  margin: 0 0 18px;
+  color: #b98ae8;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+}
+
+.blend-flasks {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.blend-flask-card {
+  text-align: center;
+  padding: 16px 10px 14px;
+  border-radius: 26px;
+
+  background: rgba(255,255,255,0.48);
+  border: 1px solid rgba(190,145,220,0.16);
+
+  box-shadow: 0 10px 22px rgba(112,68,150,0.07);
+}
+
+.blend-flask {
+  position: relative;
+  width: 52px;
+  height: 82px;
+  margin: 0 auto 10px;
+
+  border-radius: 18px 18px 20px 20px;
+  border: 2px solid rgba(93,58,114,0.22);
+
+  background: rgba(255,255,255,0.48);
+
+  overflow: hidden;
+
+  box-shadow:
+    inset 0 5px 14px rgba(255,255,255,0.84),
+    inset 0 -8px 16px rgba(93,58,114,0.10),
+    0 12px 22px rgba(112,68,150,0.14);
+}
+
+.blend-flask::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -2px;
+  width: 30px;
+  height: 14px;
+  transform: translateX(-50%);
+
+  border-radius: 8px 8px 4px 4px;
+  background: rgba(255,255,255,0.72);
+  border: 1px solid rgba(93,58,114,0.14);
+
+  z-index: 3;
+}
+
+.blend-liquid {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 0%;
+
+  background:
+    radial-gradient(circle at 32% 18%, rgba(255,255,255,0.48), transparent 16%),
+    linear-gradient(180deg, #f7b4dc, #b979e8);
+
+  transition: height 0.55s cubic-bezier(.2,.9,.25,1.15);
+}
+
+.blend-liquid::before {
+  content: "";
+  position: absolute;
+  left: -20%;
+  right: -20%;
+  top: -8px;
+  height: 16px;
+
+  border-radius: 50%;
+  background: rgba(255,255,255,0.26);
+
+  animation: blendWave 2.4s ease-in-out infinite;
+}
+
+.blend-shine {
+  position: absolute;
+  top: 18px;
+  left: 11px;
+
+  width: 7px;
+  height: 42px;
+
+  border-radius: 999px;
+  background: rgba(255,255,255,0.48);
+
+  z-index: 4;
+}
+
+.blend-name {
+  margin: 0;
+  color: #6b3f86;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.blend-percent {
+  margin: 4px 0 0;
+  color: #b36ac8;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+/* フラスコごとの色 */
+#blendOpen {
+  background:
+    radial-gradient(circle at 32% 18%, rgba(255,255,255,0.48), transparent 16%),
+    linear-gradient(180deg, #ff9ecb, #ec71b5);
+}
+
+#blendHarmony {
+  background:
+    radial-gradient(circle at 32% 18%, rgba(255,255,255,0.48), transparent 16%),
+    linear-gradient(180deg, #d7c3ff, #a982e8);
+}
+
+#blendStable {
+  background:
+    radial-gradient(circle at 32% 18%, rgba(255,255,255,0.48), transparent 16%),
+    linear-gradient(180deg, #ffdca8, #d8a45e);
+}
+
+#blendLight {
+  background:
+    radial-gradient(circle at 32% 18%, rgba(255,255,255,0.48), transparent 16%),
+    linear-gradient(180deg, #fff2a8, #ffcf6d);
+}
+
+.blend-lab.is-bump .blend-flask {
+  animation: flaskBump 0.38s ease;
+}
+
+@keyframes flaskBump {
+  0% {
+    transform: scale(1);
+  }
+
+  42% {
+    transform: scale(1.08) rotate(-2deg);
+  }
+
+  100% {
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes blendWave {
+  0%, 100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(8px);
+  }
+}
+
+@media (max-width: 700px) {
+  .blend-lab {
+    padding: 20px 12px 22px;
+    border-radius: 28px;
+  }
+
+  .blend-flasks {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .blend-flask-card {
+    padding: 14px 8px 12px;
+  }
+
+  .blend-flask {
+    width: 46px;
+    height: 74px;
+  }
+
+  .blend-name {
+    font-size: 11px;
+  }
+}
+/* ==================================================
+   Result Loading: Pick Bottle From Shelf
+   結果前に「棚からシロップを選ぶ」演出
+================================================== */
+
+.result-loading-section {
+  text-align: center;
+}
+
+.shelf-loading {
+  position: relative;
+  padding: 44px 22px 48px;
+  border-radius: 36px;
+
+  background:
+    radial-gradient(circle at 18% 12%, rgba(255, 190, 225, 0.32), transparent 32%),
+    radial-gradient(circle at 82% 18%, rgba(190, 150, 255, 0.24), transparent 34%),
+    linear-gradient(145deg, rgba(255,255,255,0.88), rgba(248,238,255,0.82));
+
+  border: 1px solid rgba(190,145,220,0.26);
+
+  box-shadow:
+    0 24px 60px rgba(112,68,150,0.16),
+    inset 0 1px 0 rgba(255,255,255,0.9);
+
+  overflow: hidden;
+}
+
+.shelf-loading::before {
+  content: "Syrup Atelier";
+  position: absolute;
+  left: 50%;
+  top: 16px;
+  transform: translateX(-50%);
+
+  color: rgba(93,58,114,0.06);
+  font-size: clamp(42px, 9vw, 110px);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.shelf-loading-label {
+  position: relative;
+  z-index: 2;
+
+  display: inline-flex;
+  margin: 0 0 12px;
+  padding: 7px 16px;
+
+  border-radius: 999px;
+  background: rgba(236,145,198,0.18);
+
+  color: #9d62bd;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.shelf-loading h2 {
+  position: relative;
+  z-index: 2;
+
+  margin: 0 0 30px;
+  color: #5d3a72;
+  font-size: clamp(24px, 5vw, 42px);
+}
+
+.loading-shelf {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 20px;
+
+  width: min(620px, 100%);
+  margin: 0 auto 28px;
+  padding: 26px 18px 30px;
+}
+
+.loading-shelf::after {
+  content: "";
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  bottom: 18px;
+
+  height: 14px;
+  border-radius: 999px;
+
+  background:
+    linear-gradient(90deg, rgba(190,145,220,0.28), rgba(236,145,198,0.24));
+
+  box-shadow:
+    0 12px 24px rgba(112,68,150,0.14),
+    inset 0 2px 0 rgba(255,255,255,0.7);
+}
+
+.loading-pick-bottle {
+  position: relative;
+
+  width: 58px;
+  height: 104px;
+
+  border-radius: 20px 20px 18px 18px;
+  border: 2px solid rgba(93,58,114,0.24);
+
+  background:
+    linear-gradient(to top, var(--pick-color) 0 62%, rgba(255,255,255,0.62) 62% 100%);
+
+  box-shadow:
+    inset 0 5px 14px rgba(255,255,255,0.76),
+    inset 0 -10px 18px rgba(93,58,114,0.12),
+    0 14px 26px rgba(112,68,150,0.16);
+
+  animation: shelfBottleWaiting 1.6s ease-in-out infinite;
+}
+
+.loading-pick-bottle::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -18px;
+
+  width: 36px;
+  height: 18px;
+
+  transform: translateX(-50%);
+  border-radius: 10px 10px 5px 5px;
+
+  background: linear-gradient(180deg, #fffaff, #e7d7ff);
+  border: 2px solid rgba(93,58,114,0.18);
+}
+
+.loading-pick-bottle::after {
+  content: "";
+  position: absolute;
+  top: 18px;
+  left: 12px;
+
+  width: 8px;
+  height: 44px;
+
+  border-radius: 999px;
+  background: rgba(255,255,255,0.52);
+}
+
+.bottle-a {
+  --pick-color: #c98a53;
+  animation-delay: 0s;
+}
+
+.bottle-b {
+  --pick-color: #a994d8;
+  animation-delay: 0.15s;
+}
+
+.bottle-c {
+  --pick-color: #ff7fac;
+  animation-delay: 0.3s;
+}
+
+.bottle-d {
+  --pick-color: #9fbd80;
+  animation-delay: 0.45s;
+}
+
+.bottle-e {
+  --pick-color: #ffe16d;
+  animation-delay: 0.6s;
+}
+
+.loading-pick-bottle.is-picked {
+  animation: bottlePicked 1.2s ease-in-out infinite;
+  filter: brightness(1.08);
+  box-shadow:
+    inset 0 5px 14px rgba(255,255,255,0.82),
+    inset 0 -10px 18px rgba(93,58,114,0.12),
+    0 0 34px rgba(236,145,198,0.45),
+    0 24px 42px rgba(112,68,150,0.22);
+}
+
+.shelf-loading-text {
+  position: relative;
+  z-index: 2;
+
+  margin: 0;
+  color: #80638d;
+  font-weight: 800;
+  line-height: 1.9;
+}
+
+@keyframes shelfBottleWaiting {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-7px) rotate(-1deg);
+  }
+}
+
+@keyframes bottlePicked {
+  0%, 100% {
+    transform: translateY(-14px) scale(1.08) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-24px) scale(1.12) rotate(2deg);
+  }
+}
+
+@media (max-width: 700px) {
+  .shelf-loading {
+    padding: 34px 14px 38px;
+    border-radius: 28px;
+  }
+
+  .loading-shelf {
+    gap: 10px;
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+  .loading-pick-bottle {
+    width: 44px;
+    height: 84px;
+    border-radius: 16px 16px 14px 14px;
+  }
+
+  .loading-pick-bottle::before {
+    width: 28px;
+    height: 15px;
+    top: -15px;
+  }
+
+  .shelf-loading-text {
+    font-size: 13px;
+  }
+}
+/* ==================================================
+   Atelier Stamp Card
+   診断中に20個のスタンプが押される演出
+================================================== */
+
+.stamp-card {
+  margin: 0 0 34px;
+  padding: 24px 22px 26px;
+  border-radius: 32px;
+
+  background:
+    repeating-linear-gradient(
+      -6deg,
+      rgba(255,255,255,0.92) 0px,
+      rgba(255,255,255,0.92) 18px,
+      rgba(248,238,255,0.72) 19px
+    );
+
+  border: 1px solid rgba(190,145,220,0.24);
+
+  box-shadow:
+    0 18px 44px rgba(112,68,150,0.12),
+    inset 0 0 0 8px rgba(255,255,255,0.34);
+}
+
+.stamp-card-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: end;
+  margin-bottom: 18px;
+}
+
+.stamp-label {
+  margin: 0;
+  color: #b98ae8;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.stamp-text {
+  margin: 0;
+  color: #80638d;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.stamp-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 10px;
+}
+
+.stamp-grid span {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 50%;
+
+  background: rgba(255,255,255,0.72);
+  border: 1px dashed rgba(150,100,180,0.28);
+
+  box-shadow: inset 0 2px 6px rgba(112,68,150,0.06);
+}
+
+.stamp-grid span.is-stamped {
+  border: none;
+  background:
+    radial-gradient(circle at 35% 28%, rgba(255,255,255,0.6), transparent 18%),
+    linear-gradient(135deg, #ec91c6, #ad85e8);
+
+  box-shadow:
+    0 8px 18px rgba(173,133,232,0.22),
+    inset 0 2px 0 rgba(255,255,255,0.45);
+
+  animation: stampPop 0.34s ease both;
+}
+
+.stamp-grid span.is-stamped::before {
+  content: "✦";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: white;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+@keyframes stampPop {
+  0% {
+    transform: scale(1.4) rotate(-10deg);
+    opacity: 0;
+  }
+
+  55% {
+    transform: scale(0.92) rotate(4deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1) rotate(0);
+  }
+}
+
+@media (max-width: 700px) {
+  .stamp-card {
+    padding: 20px 14px 22px;
+    border-radius: 28px;
+  }
+
+  .stamp-card-head {
+    display: block;
+  }
+
+  .stamp-text {
+    margin-top: 6px;
+    font-size: 12px;
+  }
+
+  .stamp-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 9px;
+  }
+}
+/* ==================================================
+   Result Loading Receipt Print
+   結果前に注文票が印刷される演出
+================================================== */
+
+.printing-receipt {
+  position: relative;
+  z-index: 2;
+
+  width: min(320px, 92%);
+  margin: 26px auto 0;
+  padding: 22px 18px;
+
+  border-radius: 0 0 22px 22px;
+
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.96) 0px,
+      rgba(255,255,255,0.96) 28px,
+      rgba(247,237,255,0.78) 29px
+    );
+
+  border: 1px solid rgba(190,145,220,0.24);
+  box-shadow: 0 16px 34px rgba(112,68,150,0.16);
+
+  color: #6b3f86;
+  font-size: 13px;
+  font-weight: 800;
+
+  transform-origin: top center;
+  animation: receiptPrint 2.8s ease-in-out infinite;
+}
+
+.printing-receipt::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -16px;
+
+  width: 78%;
+  height: 18px;
+
+  transform: translateX(-50%);
+  border-radius: 999px;
+
+  background: linear-gradient(90deg, #ec91c6, #ad85e8);
+  box-shadow: 0 8px 18px rgba(112,68,150,0.18);
+}
+
+.receipt-title {
+  margin: 0 0 10px;
+  color: #b36ac8;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  font-weight: 900;
+}
+
+.printing-receipt p {
+  margin: 6px 0;
+}
+
+.receipt-dots {
+  color: #b98ae8;
+  letter-spacing: 0.12em;
+}
+
+@keyframes receiptPrint {
+  0% {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-12px) scaleY(0.3);
+  }
+
+  35% {
+    max-height: 180px;
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+  }
+
+  75% {
+    max-height: 180px;
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+  }
+
+  100% {
+    max-height: 180px;
+    opacity: 0.85;
+    transform: translateY(4px) scaleY(1);
+  }
+}
+/* ==================================================
+   Syrup Shelf Spotlight
+   図鑑の瓶にスポットライトを当てる
+================================================== */
+
+.syrup-bottle-card {
+  position: relative;
+  isolation: isolate;
+}
+
+.syrup-bottle-card::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -18px;
+
+  width: 120px;
+  height: 180px;
+
+  transform: translateX(-50%);
+  border-radius: 999px;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(255,255,255,0.72),
+      rgba(255,220,245,0.28) 42%,
+      transparent 70%
+    );
+
+  opacity: 0;
+  filter: blur(2px);
+  pointer-events: none;
+  z-index: -1;
+
+  transition: opacity 0.28s ease, transform 0.28s ease;
+}
+
+.syrup-bottle-card:hover::before,
+.syrup-bottle-card.is-spotlight::before {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-8px);
+}
+
+.syrup-bottle-card:hover .syrup-bottle-glass,
+.syrup-bottle-card.is-spotlight .syrup-bottle-glass {
+  box-shadow:
+    inset 0 6px 16px rgba(255,255,255,0.86),
+    inset 0 -10px 18px rgba(93,58,114,0.10),
+    0 0 38px rgba(236,145,198,0.42),
+    0 20px 34px rgba(112,68,150,0.22);
+}
+
+.syrup-bottle-card:hover .syrup-bottle-visual,
+.syrup-bottle-card.is-spotlight .syrup-bottle-visual {
+  animation: spotlightPick 0.7s ease both;
+}
+
+@keyframes spotlightPick {
+  0% {
+    transform: translateY(0) rotate(0);
+  }
+
+  45% {
+    transform: translateY(-14px) rotate(-2deg);
+  }
+
+  100% {
+    transform: translateY(-9px) rotate(1deg);
+  }
+}
+/* ==================================================
+   Atelier Ingredient Cards
+   回答ごとに材料カードが集まる演出
+================================================== */
+
+.ingredient-board {
+  margin: 0 0 34px;
+  padding: 24px 22px 26px;
+  border-radius: 32px;
+
+  background:
+    radial-gradient(circle at 14% 12%, rgba(255,255,255,0.88), transparent 32%),
+    linear-gradient(145deg, rgba(255,255,255,0.78), rgba(247,235,255,0.72));
+
+  border: 1px solid rgba(190,145,220,0.24);
+
+  box-shadow:
+    0 18px 44px rgba(112,68,150,0.12),
+    inset 0 1px 0 rgba(255,255,255,0.88);
+}
+
+.ingredient-board-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: end;
+  margin-bottom: 18px;
+}
+
+.ingredient-label {
+  margin: 0;
+  color: #b98ae8;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.ingredient-text {
+  margin: 0;
+  color: #80638d;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.ingredient-cards {
+  position: relative;
+  min-height: 150px;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.ingredient-cards span {
+  display: grid;
+  place-items: center;
+
+  min-height: 58px;
+  border-radius: 18px;
+
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.92), rgba(255,244,252,0.78));
+
+  border: 1px solid rgba(190,145,220,0.22);
+
+  color: #8d5caf;
+  font-size: 13px;
+  font-weight: 900;
+
+  box-shadow: 0 8px 18px rgba(112,68,150,0.08);
+
+  opacity: 0.28;
+  filter: grayscale(0.4);
+  transform: translateY(10px) rotate(-2deg);
+
+  transition:
+    opacity 0.28s ease,
+    filter 0.28s ease,
+    transform 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.ingredient-cards span.is-collected {
+  opacity: 1;
+  filter: grayscale(0);
+  transform: translateY(0) rotate(0);
+
+  background:
+    radial-gradient(circle at 22% 18%, rgba(255,255,255,0.7), transparent 18%),
+    linear-gradient(135deg, rgba(255,232,246,0.96), rgba(238,226,255,0.92));
+
+  box-shadow:
+    0 14px 26px rgba(145,90,180,0.16),
+    inset 0 1px 0 rgba(255,255,255,0.8);
+
+  animation: ingredientCollect 0.38s ease both;
+}
+
+.ingredient-cards span.is-collected::before {
+  content: "✦";
+  margin-right: 4px;
+  color: #c58be0;
+}
+
+@keyframes ingredientCollect {
+  0% {
+    transform: translateY(-20px) scale(1.12) rotate(-6deg);
+    opacity: 0;
+  }
+
+  55% {
+    transform: translateY(4px) scale(0.96) rotate(2deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0) scale(1) rotate(0);
+  }
+}
+
+@media (max-width: 700px) {
+  .ingredient-board {
+    padding: 20px 14px 22px;
+    border-radius: 28px;
+  }
+
+  .ingredient-board-head {
+    display: block;
+  }
+
+  .ingredient-text {
+    margin-top: 6px;
+    font-size: 12px;
+  }
+
+  .ingredient-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+/* ==================================================
+   Result Label Paste Animation
+   結果表示時にラベルがペタッと貼られる
+================================================== */
+
+.result-card {
+  animation: resultCardAppear 0.6s ease both;
+}
+
+.result-badge,
+.result-type,
+.result-copy {
+  animation: resultTextRise 0.6s ease both;
+}
+
+.result-badge {
+  animation-delay: 0.08s;
+}
+
+.result-type {
+  animation-delay: 0.18s;
+}
+
+.result-copy {
+  animation-delay: 0.28s;
+}
+
+/* 結果瓶ラベルがある場合 */
+.final-bottle-label,
+.result-hero::after {
+  animation: labelPaste 0.72s cubic-bezier(.2, 1.3, .3, 1) both;
+  animation-delay: 0.5s;
+}
+
+@keyframes resultCardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes resultTextRise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes labelPaste {
+  0% {
+    opacity: 0;
+    transform: translateY(-26px) rotate(-7deg) scale(1.15);
+  }
+
+  55% {
+    opacity: 1;
+    transform: translateY(5px) rotate(2deg) scale(0.96);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(0) scale(1);
+  }
+}
+/* ==================================================
+   Long Result Text Panels
+   結果ページの長文項目を読みやすくする
+================================================== */
+
+.result-long-panel {
+  grid-column: 1 / -1;
+}
+
+.result-long-panel p {
+  line-height: 2.05;
+  color: #654276;
+  font-size: 15px;
+}
+
+.result-long-panel h4 {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.result-long-panel h4::before {
+  content: "✦";
+  color: #c58be0;
+}
+
+@media (max-width: 700px) {
+  .result-long-panel p {
+    font-size: 14px;
+    line-height: 1.95;
+  }
+}
+/* ==================================================
+   Long Modal Text
+   図鑑ポップアップの長文を読みやすくする
+================================================== */
+
+.modal-long-section {
+  text-align: left;
+}
+
+.modal-long-section p {
+  color: #654276;
+  font-size: 15px;
+  line-height: 2.05;
+}
+
+.modal-long-section h4 {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.modal-long-section h4::before {
+  content: "✦";
+  color: #c58be0;
+}
+
+@media (max-width: 700px) {
+  .modal-long-section p {
+    font-size: 14px;
+    line-height: 1.95;
+  }
+}
