@@ -665,3 +665,17 @@ if (chapterStart && quizSection) {
   renderCompatibility();
   updateProgress();
 });
+const menuButton = document.getElementById("menuButton");
+const siteNav = document.getElementById("siteNav");
+
+if (menuButton && siteNav) {
+  menuButton.addEventListener("click", () => {
+    siteNav.classList.toggle("is-open");
+  });
+
+  siteNav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      siteNav.classList.remove("is-open");
+    });
+  });
+}
