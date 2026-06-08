@@ -578,7 +578,11 @@ function openTypeModal(type) {
       ${compatHtml}
     </div>
   `;
+const modalCard = document.querySelector(".type-modal-card");
 
+if (modalCard) {
+  modalCard.scrollTop = 0;
+}
   modal.classList.remove("hidden");
 }
 function renderCompatibility() {
@@ -604,21 +608,6 @@ function renderCompatibility() {
   });
 }
 document.addEventListener("DOMContentLoaded", () => {
-    const typeModal = document.getElementById("typeModal");
-const typeModalClose = document.getElementById("typeModalClose");
-const typeModalBg = document.querySelector(".type-modal-bg");
-
-if (typeModalClose && typeModal) {
-  typeModalClose.addEventListener("click", () => {
-    typeModal.classList.add("hidden");
-  });
-}
-
-if (typeModalBg && typeModal) {
-  typeModalBg.addEventListener("click", () => {
-    typeModal.classList.add("hidden");
-  });
-}
   const startQuizBtn = document.getElementById("startQuizBtn");
   const quizSection = document.getElementById("quiz");
   const loading = document.getElementById("loading");
@@ -637,6 +626,15 @@ if (typeModalBg && typeModal) {
       quizSection.scrollIntoView({ behavior: "smooth" });
     });
   }
+  const chapterStart = document.getElementById("chapterStart");
+
+if (chapterStart && quizSection) {
+  chapterStart.addEventListener("click", () => {
+    quizSection.classList.add("is-show");
+    quizSection.style.display = "block";
+    quizSection.scrollIntoView({ behavior: "smooth" });
+  });
+}
 
   if (resultButton) {
     resultButton.addEventListener("click", () => {
